@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">반쪽이 공방</string>
+
+    <string-array name="tab_name">
+        <item>증강현실</item>
+        <item>스케쥴</item>
+        <item>가구공유</item>
+    </string-array>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+</resources>

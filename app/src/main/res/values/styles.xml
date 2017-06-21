@@ -1,0 +1,59 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="CustomAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/pink</item>
+        <item name="colorPrimaryDark">@color/pinkDark</item>
+        <item name="colorAccent">@color/mint</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/pinkDark</item>
+        <item name="android:textViewStyle">@style/AppTheme.Widget.TextView</item>
+    </style>
+
+    <style name="AppTheme.Widget"/>
+
+    <style name="AppTheme.Widget.TextView" parent="android:Widget.Holo.Light.TextView">
+        <item name="fontPath">fonts/BMDOHYEON_ttf.ttf</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/TextAppearance.DOHYEON</item>
+    </style>
+
+    <!-- Custom Font-->
+    <style name="TextAppearance.JUA" parent="android:TextAppearance">
+        <!-- android:textAppearance="@style/TextAppearance.JUA" -->
+        <item name="fontPath">fonts/BMJUA_ttf.ttf</item>
+    </style>
+    <style name="TextAppearance.DOHYEON" parent="android:TextAppearance">
+        <!-- android:textAppearance="@style/TextAppearance.DOHYEON" -->
+        <item name="fontPath">fonts/BMDOHYEON_ttf.ttf</item>
+    </style>
+    <style name="TextAppearance.HANNA" parent="android:TextAppearance">
+        <!-- android:textAppearance="@style/TextAppearance.HANNA" -->
+        <item name="fontPath">fonts/BMHANNA_11yrs_ttf.ttf</item>
+    </style>
+    <style name="TextAppearance.YEONSUNG" parent="android:TextAppearance">
+        <!-- android:textAppearance="@style/TextAppearance.YEONSUNG" -->
+        <item name="fontPath">fonts/BMYEONSUNG_ttf.ttf</item>
+    </style>
+
+
+</resources>

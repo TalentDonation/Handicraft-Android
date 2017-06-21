@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="tealLight1">#80cbc4</color>
+    <color name="tealLight2">#4db6ac</color>
+    <color name="tealAccent">#64ffda</color>
+    <color name="teal">#009688</color>
+    <color name="tealDark">#00897b</color>
+
+    <color name="pinkLight">#ffd1dc</color>
+    <color name="pink">#ffb8c9</color>
+    <color name="pinkDark">#ff9eb5</color>
+
+    <color name="mintLight">#d1fff4</color>
+    <color name="mint">#b8ffee</color>
+    <color name="mintDark">#9effe8</color>
+    <color name="mintDark2">#85ffe2</color>
+
+
+    <!-- Side Nav-->
+    <color name="side_start">#B2EBF2</color>
+    <color name="side_center">#00BCD4</color>
+    <color name="side_end">#0097A7</color>
+
+
+</resources>
