@@ -16,12 +16,12 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
 
     public ViewPageAdapter(FragmentManager fm, int tabCount) {
         super(fm);
-        this.tabCount=tabCount;
+        this.tabCount = tabCount;
     }
 
     @Override
     public Fragment getItem(int position) {
-        switch (position){
+        switch (position) {
             case 0:
                 return new TestFragment1();
             case 1:

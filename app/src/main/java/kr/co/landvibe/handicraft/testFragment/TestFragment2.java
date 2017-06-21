@@ -14,7 +14,7 @@ import kr.co.landvibe.handicraft.R;
 
 public class TestFragment2 extends Fragment {
 
-    private final static String TAG ="TestFragment2";
+    private final static String TAG = "TestFragment2";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,8 +24,8 @@ public class TestFragment2 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_test2,container,false);
-        ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.fragment_test2, container, false);
+        ButterKnife.bind(this, view);
         Log.d(TAG, "onCreateView()");
         return view;
     }

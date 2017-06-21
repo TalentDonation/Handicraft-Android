@@ -7,7 +7,7 @@ import android.util.Log;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-public class GlobalApp extends Application  {
+public class GlobalApp extends Application {
 
     private final static String TAG = "GlobalApp";
 
@@ -20,7 +20,7 @@ public class GlobalApp extends Application  {
         FontInit();
 
         Log.d(TAG, "onCreate");
-        mInstance=this;
+        mInstance = this;
     }
 
     @Override
@@ -35,14 +35,14 @@ public class GlobalApp extends Application  {
         mInstance = null;
     }
 
-    public static GlobalApp getGlobalApplicationContext(){
-        if(mInstance==null){
+    public static GlobalApp getGlobalApplicationContext() {
+        if (mInstance == null) {
             throw new IllegalStateException("this application does not inherit GlobalApplication");
         }
         return mInstance;
     }
 
-    public void FontInit(){
+    public void FontInit() {
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/BMDOHYEON_ttf.ttf")
                 .setFontAttrId(R.attr.fontPath)

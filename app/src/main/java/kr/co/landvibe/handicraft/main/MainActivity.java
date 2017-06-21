@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity
         init();
     }
 
-    public void init(){
+    public void init() {
         // Tab
         Observable.fromArray(tabName)
                 .subscribe(
-                        name-> mTabLayout.addTab(mTabLayout.newTab().setText(name)),    // binding
+                        name -> mTabLayout.addTab(mTabLayout.newTab().setText(name)),    // binding
                         Throwable::printStackTrace,                                     // error
                         () -> Log.d(TAG, "onComplete"));                                // completed
 
