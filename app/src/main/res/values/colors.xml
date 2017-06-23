@@ -19,6 +19,11 @@
     <color name="mintDark">#9effe8</color>
     <color name="mintDark2">#85ffe2</color>
 
+    <color name="grayLight1">#EEEEEE</color>
+    <color name="grayLight2">#E0E0E0</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="grayDark1">#757575</color>
+    <color name="grayDark2">#424242</color>
 
     <!-- Side Nav-->
     <color name="side_start">#B2EBF2</color>

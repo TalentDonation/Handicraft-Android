@@ -1,6 +1,7 @@
 package kr.co.landvibe.handicraft.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -21,6 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import kr.co.landvibe.handicraft.R;
+import kr.co.landvibe.handicraft.masterProfile.MasterProfileActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
@@ -149,10 +151,12 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_intro) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_master) {
+            final Intent intent = new Intent(this, MasterProfileActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
         }
 
         mDrawer.closeDrawer(GravityCompat.START);
