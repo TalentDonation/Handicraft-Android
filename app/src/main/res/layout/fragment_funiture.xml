@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="30dp"
+    tools:context="kr.co.landvibe.handicraft.furniture.FurnitureFragment"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_furniture_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <!-- 리사이클러뷰 옵션들
+        android:cacheColorHint="#00000000"
+            android:fadingEdge="none"
+            android:scrollbars="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:isScrollContainer="false"
+            android:listSelector="#00000000"
+        -->
+    </android.support.v7.widget.RecyclerView>
+
+</android.support.constraint.ConstraintLayout>

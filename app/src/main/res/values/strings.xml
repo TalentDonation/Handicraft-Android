@@ -18,9 +18,15 @@
 
     <string name="master_default_name">김공방</string>
 
+
+    <!-- master profile -->
+    <string name="master_intro_label">about master</string>
     <string name="mobile_label">mobile</string>
     <string name="work_label">work</string>
     <string name="email_label">email</string>
+    <string name="instagram_label">instagram</string>
+
+    <string name="master_instagram_url">https://www.instagram.com/keonheekk/</string>
 
 
 </resources>
