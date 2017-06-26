@@ -13,7 +13,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -23,13 +22,12 @@ import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import kr.co.landvibe.handicraft.R;
 import kr.co.landvibe.handicraft.masterProfile.MasterProfileActivity;
+import kr.co.landvibe.handicraft.utils.LogUtil;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    public final static String TAG = "MainActivity";
 
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawer;
@@ -69,7 +67,7 @@ public class MainActivity extends AppCompatActivity
                 .subscribe(
                         name -> mTabLayout.addTab(mTabLayout.newTab().setText(name)),    // binding
                         Throwable::printStackTrace,                                     // error
-                        () -> Log.d(TAG, "onComplete"));                                // completed
+                        () -> LogUtil.d("onComplete"));                                // completed
 
         // View Pager
         mViewPager.setAdapter(new ViewPageAdapter(getSupportFragmentManager(), mTabLayout.getTabCount()));

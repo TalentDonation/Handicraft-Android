@@ -44,11 +44,7 @@ public class FurnitureViewHolder extends RecyclerView.ViewHolder{
         mState.setText(furniture.getState());
         mDescription.setText(furniture.getDescription());
 
-        itemView.setOnClickListener(v->{
-            if(mOnItemClickListener!=null){
-                mOnItemClickListener.onItemClick(furniture);
-            }
-        });
+        itemView.setOnClickListener(v-> mOnItemClickListener.onItemClick(furniture));
     }
 
 

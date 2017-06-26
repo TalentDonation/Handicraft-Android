@@ -21,8 +21,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MasterProfileActivity extends AppCompatActivity {
 
-    public final static String TAG = "MasterProfileActivity";
-
     @BindView(R.id.toolbar_master_name)
     Toolbar mToolbar;
 

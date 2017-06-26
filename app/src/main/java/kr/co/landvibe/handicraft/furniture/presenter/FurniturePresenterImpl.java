@@ -1,8 +1,6 @@
 package kr.co.landvibe.handicraft.furniture.presenter;
 
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +8,9 @@ import kr.co.landvibe.handicraft.R;
 import kr.co.landvibe.handicraft.domain.Furniture;
 import kr.co.landvibe.handicraft.furniture.adapter.contract.FurnitureAdapterContract;
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
+import kr.co.landvibe.handicraft.utils.LogUtil;
 
 public class FurniturePresenterImpl implements FurniturePresenter.Presenter, OnItemClickListener {
-
-    private final static String TAG = "FurniturePresenterImpl";
 
     private FurniturePresenter.View view;
 
@@ -28,6 +25,9 @@ public class FurniturePresenterImpl implements FurniturePresenter.Presenter, OnI
     @Override
     public void detachView() {
         this.view=null;
+
+        mAdapterModel=null;
+        mAdapterView=null;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class FurniturePresenterImpl implements FurniturePresenter.Presenter, OnI
     @Override
     public void onItemClick(Object object) {
         Furniture furniture = (Furniture) object;
-        Log.d(TAG, "clicked : " + furniture.getId());
+        LogUtil.d("clicked : " + furniture.getId());
         // move to furniture detail page
     }
 }

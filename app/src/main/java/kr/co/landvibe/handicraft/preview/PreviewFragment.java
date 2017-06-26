@@ -1,39 +1,37 @@
-package kr.co.landvibe.handicraft.testFragment;
+package kr.co.landvibe.handicraft.preview;
 
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
 import kr.co.landvibe.handicraft.R;
+import kr.co.landvibe.handicraft.utils.LogUtil;
 
-public class TestFragment1 extends Fragment {
-
-    private final static String TAG = "TestFragment1";
+public class PreviewFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate()");
+        LogUtil.d("onCreate()");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_test1, container, false);
+        View view = inflater.inflate(R.layout.fragment_preview, container, false);
         ButterKnife.bind(this, view);
-        Log.d(TAG, "onCreateView()");
+        LogUtil.d("onCreateView()");
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d(TAG, "onActivityCreated()");
+        LogUtil.d("onActivityCreated()");
 
     }
 }

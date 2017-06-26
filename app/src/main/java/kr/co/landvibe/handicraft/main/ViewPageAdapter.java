@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import kr.co.landvibe.handicraft.furniture.FurnitureFragment;
-import kr.co.landvibe.handicraft.testFragment.TestFragment1;
-import kr.co.landvibe.handicraft.testFragment.TestFragment2;
+import kr.co.landvibe.handicraft.preview.PreviewFragment;
+import kr.co.landvibe.handicraft.schedule.ScheduleFragment;
 
 public class ViewPageAdapter extends FragmentPagerAdapter {
 
@@ -23,9 +23,9 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new TestFragment1();
+                return new PreviewFragment();
             case 1:
-                return new TestFragment2();
+                return new ScheduleFragment();
             case 2:
                 return new FurnitureFragment();
             default:
