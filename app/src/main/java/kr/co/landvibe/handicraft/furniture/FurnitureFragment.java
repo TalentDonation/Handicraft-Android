@@ -4,16 +4,19 @@ package kr.co.landvibe.handicraft.furniture;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.ybq.android.spinkit.SpinKitView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kr.co.landvibe.handicraft.R;
+import kr.co.landvibe.handicraft.furniture.adapter.FurnitureAdapter;
 import kr.co.landvibe.handicraft.furniture.presenter.FurniturePresenter;
 import kr.co.landvibe.handicraft.furniture.presenter.FurniturePresenterImpl;
 
@@ -24,7 +27,12 @@ public class FurnitureFragment extends Fragment implements FurniturePresenter.Vi
     @BindView(R.id.rv_furniture_list)
     RecyclerView mFurnitureListView;
 
-    private LinearLayoutManager mLinearLayoutManager;
+    @BindView(R.id.pb_loading_indicator)
+    SpinKitView mLoadingIndicator;
+
+    private FurnitureAdapter mFurnitureAdapter;
+
+    private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
 
     private FurniturePresenterImpl mFurniturePresenter;
 
@@ -51,12 +59,19 @@ public class FurnitureFragment extends Fragment implements FurniturePresenter.Vi
     }
 
     private void init(){
-        mLinearLayoutManager = new LinearLayoutManager(getContext());
-        mFurnitureListView.setLayoutManager(mLinearLayoutManager);
+
+        mFurnitureAdapter = new FurnitureAdapter(getActivity());
+        mFurnitureListView.setAdapter(mFurnitureAdapter);
+        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        mFurnitureListView.setLayoutManager(mStaggeredGridLayoutManager);
         mFurnitureListView.setHasFixedSize(true);
 
         mFurniturePresenter = new FurniturePresenterImpl();
         mFurniturePresenter.attachView(this);
+        mFurniturePresenter.setFurnitureAdapterModel(mFurnitureAdapter);
+        mFurniturePresenter.setFurnitureAdapterView(mFurnitureAdapter);
+
+        mFurniturePresenter.loadFurnitureList();
     }
 
     @Override
@@ -72,11 +87,11 @@ public class FurnitureFragment extends Fragment implements FurniturePresenter.Vi
      */
     @Override
     public void showLoading() {
-
+        mLoadingIndicator.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
-
+        mLoadingIndicator.setVisibility(View.INVISIBLE);
     }
 }

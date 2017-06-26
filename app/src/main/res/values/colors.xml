@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
     <color name="tealLight1">#80cbc4</color>
     <color name="tealLight2">#4db6ac</color>
     <color name="tealAccent">#64ffda</color>
