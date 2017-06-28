@@ -29,12 +29,17 @@
         <item name="fontPath">fonts/BMDOHYEON_ttf.ttf</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/black</item>
+    </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
-    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
         <item name="tabTextAppearance">@style/TextAppearance.DOHYEON</item>
+        <item name="android:textColorPrimary">@color/mint</item>
+        <item name="android:textColorSecondary">@color/white</item>
     </style>
 
     <!-- Custom Font-->

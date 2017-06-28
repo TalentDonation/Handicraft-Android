@@ -1,4 +1,4 @@
-package kr.co.landvibe.handicraft.furniture.presenter;
+package kr.co.landvibe.handicraft.furniturelist.presenter;
 
 
 import java.util.ArrayList;
@@ -6,19 +6,19 @@ import java.util.List;
 
 import kr.co.landvibe.handicraft.R;
 import kr.co.landvibe.handicraft.domain.Furniture;
-import kr.co.landvibe.handicraft.furniture.adapter.contract.FurnitureAdapterContract;
+import kr.co.landvibe.handicraft.furniturelist.adapter.contract.FurnitureListAdapterContract;
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
 import kr.co.landvibe.handicraft.utils.LogUtil;
 
-public class FurniturePresenterImpl implements FurniturePresenter.Presenter, OnItemClickListener {
+public class FurnitureListPresenterImpl implements FurnitureListPresenter.Presenter, OnItemClickListener {
 
-    private FurniturePresenter.View view;
+    private FurnitureListPresenter.View view;
 
-    private FurnitureAdapterContract.View mAdapterView;
-    private FurnitureAdapterContract.Model mAdapterModel;
+    private FurnitureListAdapterContract.View mAdapterView;
+    private FurnitureListAdapterContract.Model mAdapterModel;
 
     @Override
-    public void attachView(FurniturePresenter.View view) {
+    public void attachView(FurnitureListPresenter.View view) {
         this.view=view;
     }
 
@@ -31,12 +31,12 @@ public class FurniturePresenterImpl implements FurniturePresenter.Presenter, OnI
     }
 
     @Override
-    public void setFurnitureAdapterModel(FurnitureAdapterContract.Model model) {
+    public void setFurnitureListAdapterModel(FurnitureListAdapterContract.Model model) {
         mAdapterModel=model;
     }
 
     @Override
-    public void setFurnitureAdapterView(FurnitureAdapterContract.View view) {
+    public void setFurnitureListAdapterView(FurnitureListAdapterContract.View view) {
         mAdapterView=view;
         mAdapterView.setOnItemClickListener(this);
     }

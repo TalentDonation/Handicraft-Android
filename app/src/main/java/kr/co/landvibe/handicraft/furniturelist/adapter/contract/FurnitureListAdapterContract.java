@@ -1,4 +1,4 @@
-package kr.co.landvibe.handicraft.furniture.adapter.contract;
+package kr.co.landvibe.handicraft.furniturelist.adapter.contract;
 
 
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import kr.co.landvibe.handicraft.domain.Furniture;
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
 
-public interface FurnitureAdapterContract {
+public interface FurnitureListAdapterContract {
 
     interface View{
         void notifyAdapter();

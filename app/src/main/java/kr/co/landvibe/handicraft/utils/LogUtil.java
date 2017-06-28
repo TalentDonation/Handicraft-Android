@@ -7,7 +7,7 @@ import kr.co.landvibe.handicraft.GlobalApp;
 
 public class LogUtil {
 
-    static final String TAG = "KEONHEE";
+    static final String TAG = "HANDICRAFT";
 
     /** Log Level Error **/
     public static final void e(String message) {
@@ -41,7 +41,7 @@ public class LogUtil {
         sb.append(ste.getFileName().replace(".java", ""));
         sb.append("::");
         sb.append(ste.getMethodName());
-        sb.append("]");
+        sb.append("]: ");
         sb.append(message);
 
         return sb.toString();

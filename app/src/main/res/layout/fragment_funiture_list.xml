@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="30dp"
-    tools:context="kr.co.landvibe.handicraft.furniture.FurnitureFragment"
+    tools:context="kr.co.landvibe.handicraft.furniturelist.FurnitureListFragment"
     >
 
     <android.support.v7.widget.RecyclerView
@@ -30,11 +30,21 @@
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/pb_loading_indicator"
         style="@style/SpinKitView.Large.Wave"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="128dp"
         android:visibility="invisible"
         app:SpinKit_Color="@color/gray"
         />
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_mode_edit_white_24dp"
+        />
+
+</android.support.design.widget.CoordinatorLayout>

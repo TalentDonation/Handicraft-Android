@@ -1,4 +1,4 @@
-package kr.co.landvibe.handicraft.furniture.adapter;
+package kr.co.landvibe.handicraft.furniturelist.adapter;
 
 
 import android.app.Activity;
@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.landvibe.handicraft.domain.Furniture;
-import kr.co.landvibe.handicraft.furniture.adapter.contract.FurnitureAdapterContract;
-import kr.co.landvibe.handicraft.furniture.adapter.holder.FurnitureViewHolder;
+import kr.co.landvibe.handicraft.furniturelist.adapter.contract.FurnitureListAdapterContract;
+import kr.co.landvibe.handicraft.furniturelist.adapter.holder.FurnitureListViewHolder;
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
 
-public class FurnitureAdapter extends RecyclerView.Adapter<FurnitureViewHolder>
-    implements FurnitureAdapterContract.View, FurnitureAdapterContract.Model{
+public class FurnitureListAdapter extends RecyclerView.Adapter<FurnitureListViewHolder>
+    implements FurnitureListAdapterContract.View, FurnitureListAdapterContract.Model{
 
     private Activity mActivity;
 
@@ -22,18 +22,18 @@ public class FurnitureAdapter extends RecyclerView.Adapter<FurnitureViewHolder>
 
     private List<Furniture> list = new ArrayList<>();
 
-    public FurnitureAdapter(Activity activity){
+    public FurnitureListAdapter(Activity activity){
         super();
         mActivity=activity;
     }
 
     @Override
-    public FurnitureViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new FurnitureViewHolder(mActivity,parent,mOnItemClickListener);
+    public FurnitureListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new FurnitureListViewHolder(mActivity,parent,mOnItemClickListener);
     }
 
     @Override
-    public void onBindViewHolder(FurnitureViewHolder holder, int position) {
+    public void onBindViewHolder(FurnitureListViewHolder holder, int position) {
         holder.onBind(list.get(position));
     }
 
@@ -44,7 +44,7 @@ public class FurnitureAdapter extends RecyclerView.Adapter<FurnitureViewHolder>
 
 
     /**
-     * FurnitureAdapterContract.View
+     * FurnitureListAdapterContract.View
      */
     @Override
     public void notifyAdapter() {
@@ -57,7 +57,7 @@ public class FurnitureAdapter extends RecyclerView.Adapter<FurnitureViewHolder>
     }
 
     /**
-    * FurnitureAdapterContract.Model
+    * FurnitureListAdapterContract.Model
     */
     @Override
     public void setListData(List<Furniture> list) {

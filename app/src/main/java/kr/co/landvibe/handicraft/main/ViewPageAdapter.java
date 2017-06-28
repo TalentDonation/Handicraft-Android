@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import kr.co.landvibe.handicraft.furniture.FurnitureFragment;
+import kr.co.landvibe.handicraft.furniturelist.FurnitureListFragment;
 import kr.co.landvibe.handicraft.preview.PreviewFragment;
 import kr.co.landvibe.handicraft.schedule.ScheduleFragment;
 
@@ -27,7 +27,7 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
             case 1:
                 return new ScheduleFragment();
             case 2:
-                return new FurnitureFragment();
+                return new FurnitureListFragment();
             default:
                 return null;
         }
