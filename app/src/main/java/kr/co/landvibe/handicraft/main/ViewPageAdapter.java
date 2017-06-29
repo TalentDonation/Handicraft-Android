@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import kr.co.landvibe.handicraft.furniturelist.FurnitureListFragment;
+import kr.co.landvibe.handicraft.furniture.list.FurnitureListFragment;
 import kr.co.landvibe.handicraft.preview.PreviewFragment;
 import kr.co.landvibe.handicraft.schedule.ScheduleFragment;
 

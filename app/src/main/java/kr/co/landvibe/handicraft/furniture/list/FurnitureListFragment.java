@@ -1,6 +1,7 @@
-package kr.co.landvibe.handicraft.furniturelist;
+package kr.co.landvibe.handicraft.furniture.list;
 
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -19,9 +20,10 @@ import com.github.ybq.android.spinkit.SpinKitView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kr.co.landvibe.handicraft.R;
-import kr.co.landvibe.handicraft.furniturelist.adapter.FurnitureListAdapter;
-import kr.co.landvibe.handicraft.furniturelist.presenter.FurnitureListPresenter;
-import kr.co.landvibe.handicraft.furniturelist.presenter.FurnitureListPresenterImpl;
+import kr.co.landvibe.handicraft.furniture.detail.FurnitureDetailActivity;
+import kr.co.landvibe.handicraft.furniture.list.adapter.FurnitureListAdapter;
+import kr.co.landvibe.handicraft.furniture.list.presenter.FurnitureListPresenter;
+import kr.co.landvibe.handicraft.furniture.list.presenter.FurnitureListPresenterImpl;
 import kr.co.landvibe.handicraft.utils.LogUtil;
 
 public class FurnitureListFragment extends Fragment implements FurnitureListPresenter.View{
@@ -49,7 +51,7 @@ public class FurnitureListFragment extends Fragment implements FurnitureListPres
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_funiture_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_furniture_list, container, false);
         ButterKnife.bind(this, view);
         LogUtil.d("onCreateView()");
         return view;
@@ -121,5 +123,12 @@ public class FurnitureListFragment extends Fragment implements FurnitureListPres
     @Override
     public void hideLoading() {
         mLoadingIndicator.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void moveToFurnitureDetailActivity() {
+        final Intent intent = new Intent(getActivity(), FurnitureDetailActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
     }
 }

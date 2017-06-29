@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+    <RelativeLayout
+        android:id="@+id/slider_container"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        >
+
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/slider_furniture_list"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            custom:auto_cycle="false"
+            custom:indicator_visibility="visible"
+            />
+
+        <com.daimajia.slider.library.Indicators.PagerIndicator
+            android:id="@+id/slider_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            custom:selected_color="@color/mintDark"
+            custom:unselected_color="@color/grayLight2"
+            custom:shape="oval"
+            custom:selected_padding_left="3dp"
+            custom:selected_padding_right="3dp"
+            custom:unselected_padding_left="3dp"
+            custom:unselected_padding_right="3dp"
+            custom:selected_width="8dp"
+            custom:selected_height="8dp"
+            custom:unselected_width="4dp"
+            custom:unselected_height="4dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@+id/slider_furniture_list"
+            android:paddingBottom="10dp"
+            />
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

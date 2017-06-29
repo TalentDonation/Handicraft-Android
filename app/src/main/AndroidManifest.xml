@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,6 +29,12 @@
 
         <activity
             android:name=".masterProfile.MasterProfileActivity"
+            android:parentActivityName=".main.MainActivity"
+            >
+
+        </activity>
+        <activity
+            android:name=".furniture.detail.FurnitureDetailActivity"
             android:parentActivityName=".main.MainActivity"
             >
 

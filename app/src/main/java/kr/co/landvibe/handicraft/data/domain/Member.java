@@ -1,4 +1,4 @@
-package kr.co.landvibe.handicraft.domain;
+package kr.co.landvibe.handicraft.data.domain;
 
 import java.io.Serializable;
 import java.util.Date;

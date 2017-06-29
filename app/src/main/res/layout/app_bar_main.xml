@@ -42,6 +42,7 @@
                 app:layout_collapseMode="pin"
                 app:title="@string/app_name"
                 app:titleTextAppearance="@style/TextAppearance.DOHYEON"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
                 />
 
         </android.support.design.widget.CollapsingToolbarLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bottom_bar_size"
+    android:orientation="horizontal"
+    android:layout_gravity="bottom"
+    >
+
+    <Button
+        android:id="@+id/btn_star"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/grayLight2"
+        android:text="찜하기"
+        android:textColor="@color/white"
+        />
+
+    <Button
+        android:id="@+id/btn_buy"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/mintDark"
+        android:layout_weight="2"
+        android:text="연락하기"
+        android:textColor="@color/white"
+        />
+
+</LinearLayout>

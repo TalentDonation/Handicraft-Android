@@ -1,7 +1,7 @@
-package kr.co.landvibe.handicraft.furniturelist.presenter;
+package kr.co.landvibe.handicraft.furniture.list.presenter;
 
 
-import kr.co.landvibe.handicraft.furniturelist.adapter.contract.FurnitureListAdapterContract;
+import kr.co.landvibe.handicraft.furniture.list.adapter.contract.FurnitureListAdapterContract;
 
 public interface FurnitureListPresenter {
     interface View{
@@ -9,6 +9,8 @@ public interface FurnitureListPresenter {
         void showLoading();
 
         void hideLoading();
+
+        void moveToFurnitureDetailActivity();
     }
 
     interface Presenter{

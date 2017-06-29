@@ -29,4 +29,8 @@
     <string name="master_instagram_url">https://www.instagram.com/keonheekk/</string>
 
 
+    <!-- furniture detail -->
+    <string name="furniture_toolbar_title">가구 정보</string>
+
+
 </resources>

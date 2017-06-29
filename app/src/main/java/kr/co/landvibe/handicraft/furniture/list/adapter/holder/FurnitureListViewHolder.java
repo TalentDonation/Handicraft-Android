@@ -1,4 +1,4 @@
-package kr.co.landvibe.handicraft.furniturelist.adapter.holder;
+package kr.co.landvibe.handicraft.furniture.list.adapter.holder;
 
 
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kr.co.landvibe.handicraft.R;
-import kr.co.landvibe.handicraft.domain.Furniture;
+import kr.co.landvibe.handicraft.data.domain.Furniture;
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
 
 public class FurnitureListViewHolder extends RecyclerView.ViewHolder{

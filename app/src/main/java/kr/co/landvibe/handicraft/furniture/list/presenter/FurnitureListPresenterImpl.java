@@ -1,12 +1,12 @@
-package kr.co.landvibe.handicraft.furniturelist.presenter;
+package kr.co.landvibe.handicraft.furniture.list.presenter;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.landvibe.handicraft.R;
-import kr.co.landvibe.handicraft.domain.Furniture;
-import kr.co.landvibe.handicraft.furniturelist.adapter.contract.FurnitureListAdapterContract;
+import kr.co.landvibe.handicraft.data.domain.Furniture;
+import kr.co.landvibe.handicraft.furniture.list.adapter.contract.FurnitureListAdapterContract;
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
 import kr.co.landvibe.handicraft.utils.LogUtil;
 
@@ -61,6 +61,8 @@ public class FurnitureListPresenterImpl implements FurnitureListPresenter.Presen
     public void onItemClick(Object object) {
         Furniture furniture = (Furniture) object;
         LogUtil.d("clicked : " + furniture.getId());
+
         // move to furniture detail page
+        view.moveToFurnitureDetailActivity();
     }
 }

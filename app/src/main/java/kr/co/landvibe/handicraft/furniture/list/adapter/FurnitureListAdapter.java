@@ -1,4 +1,4 @@
-package kr.co.landvibe.handicraft.furniturelist.adapter;
+package kr.co.landvibe.handicraft.furniture.list.adapter;
 
 
 import android.app.Activity;
@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.landvibe.handicraft.domain.Furniture;
-import kr.co.landvibe.handicraft.furniturelist.adapter.contract.FurnitureListAdapterContract;
-import kr.co.landvibe.handicraft.furniturelist.adapter.holder.FurnitureListViewHolder;
+import kr.co.landvibe.handicraft.data.domain.Furniture;
+import kr.co.landvibe.handicraft.furniture.list.adapter.contract.FurnitureListAdapterContract;
+import kr.co.landvibe.handicraft.furniture.list.adapter.holder.FurnitureListViewHolder;
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
 
 public class FurnitureListAdapter extends RecyclerView.Adapter<FurnitureListViewHolder>
