@@ -11,6 +11,9 @@ public interface FurnitureListPresenter {
         void hideLoading();
 
         void moveToFurnitureDetailActivity();
+
+        void moveToFurnitureAddActivity();
+
     }
 
     interface Presenter{

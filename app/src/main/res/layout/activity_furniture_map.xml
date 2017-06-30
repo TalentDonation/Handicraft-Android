@@ -2,9 +2,10 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    tools:context=".furniture.map.LocationActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -15,18 +16,17 @@
         >
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_furniture_detail"
+            android:id="@+id/toolbar_furniture_map"
             android:layout_width="match_parent"
             android:layout_height="@dimen/action_bar_size"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="@string/furniture_toolbar_title"
+            app:title="@string/furniture_map_toolbar_title"
             >
 
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_furniture_detail" />
+    <!-- map -->
 
-    <include layout="@layout/bottom_furniture_detail" />
 </android.support.design.widget.CoordinatorLayout>

@@ -1,15 +1,15 @@
 package kr.co.landvibe.handicraft;
 
 
-import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.support.multidex.MultiDexApplication;
 
 import kr.co.landvibe.handicraft.utils.LogUtil;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-public class GlobalApp extends Application {
+public class GlobalApp extends MultiDexApplication {
 
     public static boolean DEBUG;
 

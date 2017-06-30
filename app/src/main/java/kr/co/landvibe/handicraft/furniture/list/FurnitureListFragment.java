@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -19,23 +20,26 @@ import com.github.ybq.android.spinkit.SpinKitView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import kr.co.landvibe.handicraft.R;
+import kr.co.landvibe.handicraft.furniture.add.FurnitureAddActivity;
 import kr.co.landvibe.handicraft.furniture.detail.FurnitureDetailActivity;
 import kr.co.landvibe.handicraft.furniture.list.adapter.FurnitureListAdapter;
 import kr.co.landvibe.handicraft.furniture.list.presenter.FurnitureListPresenter;
 import kr.co.landvibe.handicraft.furniture.list.presenter.FurnitureListPresenterImpl;
 import kr.co.landvibe.handicraft.utils.LogUtil;
 
-public class FurnitureListFragment extends Fragment implements FurnitureListPresenter.View{
+public class FurnitureListFragment extends Fragment
+        implements FurnitureListPresenter.View, SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.rv_furniture_list)
     RecyclerView mFurnitureListView;
 
+    @BindView(R.id.swipe_layout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
+
     @BindView(R.id.pb_loading_indicator)
     SpinKitView mLoadingIndicator;
-
-    @BindView(R.id.fab_register)
-    FloatingActionButton mRegisterFAB;
 
     private FurnitureListAdapter mFurnitureListAdapter;
 
@@ -81,6 +85,9 @@ public class FurnitureListFragment extends Fragment implements FurnitureListPres
 
     private void init(){
 
+        // Swipe Refresh
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
         // Set RecyclerView
         mFurnitureListAdapter = new FurnitureListAdapter(getActivity());
         mFurnitureListView.setAdapter(mFurnitureListAdapter);
@@ -98,11 +105,12 @@ public class FurnitureListFragment extends Fragment implements FurnitureListPres
         // Load Data
         mFurnitureListPresenter.loadFurnitureList();
 
-        // Fab Button
-        mRegisterFAB.setOnClickListener(view -> Snackbar.make(view, "Register Furniture", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
     }
 
+    @OnClick(R.id.fab_register)
+    public void moveToAddPage(View v){
+        moveToFurnitureAddActivity();
+    }
 
     @Override
     public void onDestroy() {
@@ -130,5 +138,19 @@ public class FurnitureListFragment extends Fragment implements FurnitureListPres
         final Intent intent = new Intent(getActivity(), FurnitureDetailActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
+    }
+
+    @Override
+    public void moveToFurnitureAddActivity() {
+        final Intent intent = new Intent(getActivity(), FurnitureAddActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onRefresh() {
+        mFurnitureListPresenter.loadFurnitureList();
+
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 }

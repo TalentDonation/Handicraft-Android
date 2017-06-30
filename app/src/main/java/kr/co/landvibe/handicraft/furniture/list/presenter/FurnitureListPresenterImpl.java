@@ -45,12 +45,18 @@ public class FurnitureListPresenterImpl implements FurnitureListPresenter.Presen
     public void loadFurnitureList() {
 
         List<Furniture> list = new ArrayList<>();
-        list.add(new Furniture("a","회색의자!","팝니다","1년만 쓴건데 상태좋아요","", R.drawable.f1));
-        list.add(new Furniture("c","청록색 쇼파!","팝니다","1년만 쓴건데 상태좋아요","", R.drawable.f3));
-        list.add(new Furniture("e","벤치!","가져가세요","1년만 쓴건데 상태좋아요","", R.drawable.f5));
-        list.add(new Furniture("e","벤치!","가져가세요","1년만 쓴건데 상태좋아요","", R.drawable.f7));
-        list.add(new Furniture("e","벤치!","가져가세요","1년만 쓴건데 상태좋아요","", R.drawable.f8));
-        list.add(new Furniture("e","벤치!","가져가세요","1년만 쓴건데 상태좋아요","", R.drawable.f9));
+        list.add(new Furniture("a","회색의자!","팝니다","a+","1년만 쓴건데 상태좋아요"
+                ,null,"의자","일룸",3, 100000,15,15,15,"서울",0.0,0.0,null, R.drawable.f1));
+        list.add(new Furniture("a","회색의자!","팝니다","a+","1년만 쓴건데 상태좋아요"
+                ,null,"의자","일룸",3, 100000,15,15,15,"서울",0.0,0.0,null, R.drawable.f3));
+        list.add(new Furniture("a","회색의자!","팝니다","a+","1년만 쓴건데 상태좋아요"
+                ,null,"의자","일룸",3, 100000,15,15,15,"서울",0.0,0.0,null, R.drawable.f5));
+        list.add(new Furniture("a","회색의자!","팝니다","a+","1년만 쓴건데 상태좋아요"
+                ,null,"의자","일룸",3, 100000,15,15,15,"서울",0.0,0.0,null, R.drawable.f7));
+        list.add(new Furniture("a","회색의자!","팝니다","a+","1년만 쓴건데 상태좋아요"
+                ,null,"의자","일룸",3, 100000,15,15,15,"서울",0.0,0.0,null, R.drawable.f8));
+        list.add(new Furniture("a","회색의자!","팝니다","a+","1년만 쓴건데 상태좋아요"
+                ,null,"의자","일룸",3, 100000,15,15,15,"서울",0.0,0.0,null, R.drawable.f9));
 
         mAdapterModel.setListData(list);
         mAdapterView.notifyAdapter();

@@ -15,6 +15,7 @@
         android:name=".GlobalApp"
         android:theme="@style/CustomAppTheme"
         >
+
         <activity
             android:name=".main.MainActivity"
             android:label="@string/app_name"
@@ -36,9 +37,23 @@
         <activity
             android:name=".furniture.detail.FurnitureDetailActivity"
             android:parentActivityName=".main.MainActivity"
+            android:launchMode="singleTask"
             >
 
         </activity>
+        <activity
+            android:name=".furniture.map.LocationActivity"
+            android:parentActivityName=".furniture.detail.FurnitureDetailActivity"
+            >
+
+        </activity>
+        <activity
+            android:name=".furniture.add.FurnitureAddActivity"
+            android:parentActivityName=".main.MainActivity"
+            >
+
+        </activity>
+
     </application>
 
 </manifest>

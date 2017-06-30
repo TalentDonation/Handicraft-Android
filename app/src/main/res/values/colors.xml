@@ -22,11 +22,21 @@
     <color name="mintDark">#9effe8</color>
     <color name="mintDark2">#85ffe2</color>
 
+    <color name="lightBlueLight1">#B3E5FC</color>
+    <color name="lightBlueLight2">#81D4FA</color>
+    <color name="lightBlue">#03A9F4</color>
+    <color name="lightBlueDark1">#0288D1</color>
+    <color name="lightBlueDark2">#01579B</color>
+
     <color name="grayLight1">#EEEEEE</color>
     <color name="grayLight2">#E0E0E0</color>
+    <color name="grayLight3">#BDBDBD</color>
     <color name="gray">#9E9E9E</color>
     <color name="grayDark1">#757575</color>
     <color name="grayDark2">#424242</color>
+    <color name="grayDark3">#212121</color>
+
+    <color name="red">#FF0000</color>
 
     <!-- Side Nav-->
     <color name="side_start">#B2EBF2</color>

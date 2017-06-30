@@ -32,5 +32,11 @@
     <!-- furniture detail -->
     <string name="furniture_toolbar_title">가구 정보</string>
 
+    <!-- furniture map -->
+    <string name="furniture_map_toolbar_title">거래 지역</string>
+
+    <!-- furniture add -->
+    <string name="furniture_add_toolbar_title">가구 등록</string>
+
 
 </resources>

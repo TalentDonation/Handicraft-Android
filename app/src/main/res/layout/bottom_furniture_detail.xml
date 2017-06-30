@@ -6,25 +6,53 @@
     android:orientation="horizontal"
     android:layout_gravity="bottom"
     >
-
-    <Button
-        android:id="@+id/btn_star"
+    <LinearLayout
+        android:id="@+id/star_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/grayLight2"
-        android:text="찜하기"
-        android:textColor="@color/white"
-        />
+        android:background="@color/grayLight3"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/iv_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_favorite_border_white_24dp"
+            android:padding="4dp"
+            />
+        <TextView
+            android:id="@+id/tv_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="찜하기"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_buy"
+    <LinearLayout
+        android:id="@+id/buy_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:background="@color/mintDark"
         android:layout_weight="2"
-        android:text="연락하기"
-        android:textColor="@color/white"
-        />
-
+        android:background="@color/mintDark"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/iv_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_phone_white_24dp"
+            android:padding="4dp"
+            />
+        <TextView
+            android:id="@+id/tv_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="연락하기"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
 </LinearLayout>
