@@ -54,6 +54,14 @@
         <activity
             android:name=".furniture.add.FurnitureAddActivity"
             android:parentActivityName=".main.MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/BlueCustomAppTheme"
+            >
+
+        </activity>
+        <activity
+            android:name=".furniture.preview.FurniturePreviewActivity"
+            android:parentActivityName=".furniture.add.FurnitureAddActivity"
             >
 
         </activity>

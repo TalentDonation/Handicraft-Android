@@ -11,6 +11,8 @@ public interface FurnitureAddPresenter {
 
         void backToMainActivity();
 
+        void showPreviewActivity();
+
     }
 
     interface Presenter{
