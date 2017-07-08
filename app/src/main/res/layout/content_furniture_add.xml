@@ -20,7 +20,7 @@
             android:layout_height="200dp"
             card:cardCornerRadius="0dp"
             android:background="@color/white"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
@@ -64,7 +64,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="14dp"
@@ -72,25 +72,26 @@
 
                     <TextView
                         android:id="@+id/tv_title_label"
+                        android:labelFor="@+id/et_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_title_hint"
-                        android:textSize="16sp"
-                        android:textColor="@color/grayLight3"
+                        android:text="@string/furniture_add_title_label"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:layout_alignParentStart="true"
                         />
 
                     <EditText
                         android:id="@+id/et_title"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:textSize="16sp"
+                        android:hint="@string/furniture_add_title_hint"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
                         android:background="@color/white"
-                        android:layout_toEndOf="@id/tv_title_label"
-                        android:layout_alignParentEnd="@id/tv_title_label"
-                        android:layout_marginStart="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/tv_title_label"
                         />
                 </RelativeLayout>
 
@@ -102,8 +103,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="14dp"
                     >
@@ -112,28 +113,28 @@
                         android:id="@+id/tv_price_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_price_hint"
-                        android:textSize="16sp"
-                        android:textColor="@color/grayLight3"
+                        android:text="@string/furniture_add_price_label"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:layout_alignParentStart="true"
                         />
 
                     <EditText
                         android:id="@+id/et_price"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="number"
+                        android:hint="@string/furniture_add_price_hint"
                         android:maxLines="1"
                         android:maxLength="12"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
                         android:background="@color/white"
-                        android:layout_toEndOf="@id/tv_price_label"
-                        android:layout_alignParentEnd="@id/tv_price_label"
-                        android:layout_marginStart="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/tv_price_label"
                         />
-
                 </RelativeLayout>
+
 
                 <View
                     android:layout_width="match_parent"
@@ -144,19 +145,21 @@
                 <RelativeLayout
                     android:id="@+id/state_container"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginBottom="14dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:clickable="true"
                     >
 
                     <TextView
                         android:id="@+id/tv_state_label"
+                        android:labelFor="@+id/tv_state"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_state_hint"
-                        android:textSize="16sp"
-                        android:textColor="@color/grayLight3"
+                        android:text="@string/furniture_add_state_label"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:layout_alignParentStart="true"
                         />
 
@@ -164,7 +167,8 @@
                         android:id="@+id/tv_state"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
+                        android:hint="@string/furniture_add_touch_hint"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
                         android:layout_alignParentEnd="true"
                         />
@@ -176,35 +180,37 @@
                     android:background="@color/grayLight1"
                     />
 
-                <LinearLayout
+                <RelativeLayout
+                    android:id="@+id/tv_trade_container"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginBottom="14dp"
-                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:clickable="true"
                     >
-
                     <TextView
                         android:id="@+id/tv_trade_label"
-                        android:layout_width="0dp"
+                        android:labelFor="@+id/tv_trade"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_trade_hint"
-                        android:textSize="16sp"
-                        android:textColor="@color/grayLight3"
-                        android:layout_weight="1"
+                        android:text="@string/furniture_add_trade_label"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:layout_alignParentStart="true"
                         />
 
                     <TextView
                         android:id="@+id/tv_trade"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_trade_hint"
-                        android:textSize="16sp"
-                        android:textColor="@color/grayLight3"
-                        android:layout_weight="1"
+                        android:hint="@string/furniture_add_touch_hint"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:layout_alignParentEnd="true"
                         />
+                </RelativeLayout>
 
-                </LinearLayout>
 
             </LinearLayout>
 
@@ -244,7 +250,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="14dp"
@@ -254,9 +260,9 @@
                         android:id="@+id/tv_brand_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_brand_hint"
-                        android:textSize="16sp"
-                        android:textColor="@color/grayLight3"
+                        android:text="@string/furniture_add_brand_label"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:layout_alignParentStart="true"
                         />
 
@@ -265,12 +271,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:textSize="16sp"
+                        android:hint="@string/furniture_add_brand_hint"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
                         android:background="@color/white"
+                        android:layout_marginStart="16dp"
                         android:layout_toEndOf="@id/tv_brand_label"
-                        android:layout_alignParentEnd="@id/tv_brand_label"
-                        android:layout_marginStart="8dp"
                         />
                 </RelativeLayout>
 
@@ -282,7 +288,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="14dp"
@@ -292,9 +298,9 @@
                         android:id="@+id/tv_type_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_type_hint"
-                        android:textSize="16sp"
-                        android:textColor="@color/grayLight3"
+                        android:text="@string/furniture_add_type_label"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:layout_alignParentStart="true"
                         />
 
@@ -302,13 +308,13 @@
                         android:id="@+id/et_type"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:textSize="16sp"
+                        android:inputType="text"
+                        android:hint="@string/furniture_add_type_hint"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
                         android:background="@color/white"
+                        android:layout_marginStart="16dp"
                         android:layout_toEndOf="@id/tv_type_label"
-                        android:layout_alignParentEnd="@id/tv_type_label"
-                        android:layout_marginStart="8dp"
                         />
                 </RelativeLayout>
 
@@ -320,7 +326,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="14dp"
@@ -330,9 +336,9 @@
                         android:id="@+id/tv_period_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_period_hint"
-                        android:textSize="16sp"
-                        android:textColor="@color/grayLight3"
+                        android:text="@string/furniture_add_period_label"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:layout_alignParentStart="true"
                         />
 
@@ -341,7 +347,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
                         android:background="@color/white"
                         android:layout_toEndOf="@id/tv_period_label"
@@ -359,7 +365,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="14dp"
@@ -369,9 +375,9 @@
                         android:id="@+id/tv_size_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_size_hint"
-                        android:textSize="16sp"
-                        android:textColor="@color/grayLight3"
+                        android:text="@string/furniture_add_size_label"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:layout_alignParentStart="true"
                         />
 
@@ -380,7 +386,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
                         android:background="@color/white"
                         android:layout_toEndOf="@id/tv_size_label"
@@ -398,7 +404,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="14dp"
@@ -408,23 +414,32 @@
                         android:id="@+id/tv_desc_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_desc_hint"
-                        android:textSize="16sp"
-                        android:textColor="@color/grayLight3"
+                        android:text="@string/furniture_add_detail_label"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:layout_alignParentStart="true"
                         />
 
-                    <EditText
-                        android:id="@+id/et_desc"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/tv_desc_tip"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:textSize="16sp"
+                        android:text="@string/furniture_add_touch_hint"
+                        android:textSize="14sp"
+                        android:textColor="@color/grayLight3"
+                        android:layout_alignBottom="@+id/tv_desc_label"
+                        android:layout_alignParentEnd="true"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
-                        android:minLines="2"
-                        android:background="@color/white"
-                        android:layout_toEndOf="@id/tv_desc_label"
-                        android:layout_alignParentEnd="@id/tv_desc_label"
+                        android:visibility="gone"
+                        android:layout_below="@id/tv_desc_label"
+                        android:layout_alignStart="@+id/tv_desc_label"
                         android:layout_marginStart="8dp"
                         />
 
@@ -438,7 +453,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="14dp"
                     android:layout_marginBottom="14dp"
@@ -448,8 +463,8 @@
                         android:id="@+id/tv_location_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/furniture_add_location_hint"
-                        android:textSize="16sp"
+                        android:text="@string/furniture_add_location_label"
+                        android:textSize="14sp"
                         android:textColor="@color/grayLight3"
                         android:layout_alignParentStart="true"
                         />
@@ -459,7 +474,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textColor="@color/black"
                         android:background="@color/white"
                         android:layout_toEndOf="@id/tv_location_label"
@@ -473,20 +488,37 @@
 
         </android.support.v7.widget.CardView>
 
-        <Button
-            android:id="@+id/btn_register"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/bottom_bar_size"
-            android:text="@string/furniture_add_btn_label"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:background="@color/red"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            />
+            >
+            <Button
+                android:id="@+id/btn_preview"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/bottom_bar_size"
+                android:text="@string/furniture_preview_btn_label"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:background="@color/grayLight3"
+                android:layout_weight="1"
+                />
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/bottom_bar_size"
+                android:text="@string/furniture_add_btn_label"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:background="@color/red"
+                android:layout_weight="2"
+                />
 
+        </LinearLayout>
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

@@ -41,26 +41,42 @@
     <string name="furniture_add_desc_label">상품 정보</string>
     <string name="furniture_add_detail_desc_label">상세 정보</string>
 
-    <string name="furniture_add_title_hint">판매 제목</string>
-    <string name="furniture_add_price_hint">가격</string>
-    <string name="furniture_add_state_hint">가구 상태</string>
-    <string name="furniture_add_trade_hint">거래 형태</string>
+    <string name="furniture_add_title_label">상품명</string>
+    <string name="furniture_add_price_label">가격</string>
+    <string name="furniture_add_state_label">가구 상태</string>
+    <string name="furniture_add_trade_label">거래 형태</string>
 
-    <string name="furniture_add_brand_hint">브랜드</string>
-    <string name="furniture_add_type_hint">종류</string>
-    <string name="furniture_add_period_hint">사용기간</string>
-    <string name="furniture_add_size_hint">크기</string>
-    <string name="furniture_add_desc_hint">상세설명</string>
+    <string name="furniture_add_brand_label">브랜드</string>
+    <string name="furniture_add_type_label">종류</string>
+    <string name="furniture_add_period_label">사용기간</string>
+    <string name="furniture_add_size_label">크기</string>
+    <string name="furniture_add_detail_label">상세설명</string>
+    <string name="furniture_add_location_label">거래지역</string>
+
+    <string name="furniture_add_title_hint">가구의 이름을 적어주세요</string>
+    <string name="furniture_add_price_hint">가구의 가격을 적어주세요</string>
+    <string name="furniture_add_touch_hint">이곳을 터치해주세요</string>
+
+    <string name="furniture_add_brand_hint">가구의 브랜드를 적어주세요</string>
+    <string name="furniture_add_type_hint">어떤 종류의 가구인지 적어주세요</string>
+    <string name="furniture_add_desc_hint">자세한 설명을 적어주세요</string>
     <string name="furniture_add_location_hint">거래지역</string>
 
+
     <string name="furniture_add_btn_label">등록완료</string>
+    <string name="furniture_preview_btn_label">미리보기</string>
 
     <string-array name="state_rank">
         <item>새것</item>
-        <item>거의 새것</item>
         <item>새것+하자있음</item>
+        <item>거의 새것</item>
         <item>중고</item>
         <item>중고+하자있음</item>
+    </string-array>
+
+    <string-array name="trade_type">
+        <item>팝니다</item>
+        <item>가져가세요</item>
     </string-array>
 
     <!-- furniture preview -->

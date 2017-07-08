@@ -24,6 +24,8 @@ import kr.co.landvibe.handicraft.R;
 import kr.co.landvibe.handicraft.furniture.add.presenter.FurnitureAddPresenter;
 import kr.co.landvibe.handicraft.furniture.add.presenter.FurnitureAddPresenterImpl;
 import kr.co.landvibe.handicraft.furniture.preview.FurniturePreviewActivity;
+import kr.co.landvibe.handicraft.type.StateType;
+import kr.co.landvibe.handicraft.type.TradeType;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class FurnitureAddActivity extends AppCompatActivity
@@ -46,7 +48,14 @@ public class FurnitureAddActivity extends AppCompatActivity
     @BindArray(R.array.state_rank)
     String[] mStateList;
 
+    @BindArray(R.array.trade_type)
+    String[] mTradeTypeList;
+
+    private StateType currentStateType = StateType.EMPTY;
+    private TradeType currentTradeType = TradeType.EMPTY;
+
     private AlertDialog mStateChoiceDialog;
+    private AlertDialog mTradeChoiceDialog;
 
     private FurnitureAddPresenter.Presenter mFurnitureAddPresenter;
 
@@ -77,9 +86,11 @@ public class FurnitureAddActivity extends AppCompatActivity
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!s.toString().equals(mPriceText)) {
+                if (s.length()!=0 && !s.toString().equals(mPriceText)) {
                     DecimalFormat df = new DecimalFormat("###,###");
-                    mPriceText = df.format(Long.parseLong(s.toString().replaceAll(",", "")));
+                    mPriceText = df.format(
+                            Long.parseLong(s.toString().replaceAll(",", ""))
+                    );
                     mPriceEt.setText(mPriceText);
                     mPriceEt.setSelection(mPriceText.length());
                 }
@@ -87,25 +98,37 @@ public class FurnitureAddActivity extends AppCompatActivity
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                s.append(" 원");
             }
         });
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+        mStateChoiceDialog = new AlertDialog.Builder(this)
                 .setTitle("상품 상태")
-                .setSingleChoiceItems(mStateList, -1, (dialog, index) -> {
-                    mStateTv.setText(mStateList[index]);
+                .setItems(mStateList, (dialog, which) -> {
+                    mStateTv.setText(mStateList[which]);
+                    currentStateType=StateType.get(which);
                     mStateChoiceDialog.dismiss();
-                });
-        mStateChoiceDialog = builder.create();
+                }).create();
+
+        mTradeChoiceDialog = new AlertDialog.Builder(this)
+                .setTitle("거래 형태")
+                .setItems(mTradeTypeList,((dialog, which) -> {
+                    mTradeTv.setText(mTradeTypeList[which]);
+                    currentTradeType=TradeType.get(which);
+                    mTradeChoiceDialog.dismiss();
+                })).create();
 
         mFurnitureAddPresenter = new FurnitureAddPresenterImpl();
         mFurnitureAddPresenter.attachView(this);
     }
-
     @OnClick(R.id.state_container)
     public void createStateChoiceDialog(View v){
         mStateChoiceDialog.show();
+    }
+
+    @OnClick(R.id.tv_trade_container)
+    public void createTradeChoiceDialog(View v){
+        mTradeChoiceDialog.show();
     }
 
     @Override
