@@ -8,7 +8,7 @@ import android.support.multidex.MultiDexApplication;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import kr.co.landvibe.handicraft.utils.LogUtil;
+import kr.co.landvibe.handicraft.utils.LogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class GlobalApp extends MultiDexApplication {
@@ -22,7 +22,7 @@ public class GlobalApp extends MultiDexApplication {
         super.onCreate();
         this.DEBUG = isDebuggable(this);
 
-        LogUtil.d("onCreate");
+        LogUtils.d("onCreate");
         mInstance = this;
 
         initFont();
@@ -33,7 +33,7 @@ public class GlobalApp extends MultiDexApplication {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        LogUtil.d("attachBaseContext");
+        LogUtils.d("attachBaseContext");
     }
 
     @Override

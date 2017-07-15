@@ -27,7 +27,7 @@ public class AuthLocalDataSource implements AuthDataSouce {
         return INSTANCE;
     }
 
-    public static void destroyInstance() {
+    public void destroyInstance() {
         INSTANCE = null;
     }
 
@@ -48,11 +48,11 @@ public class AuthLocalDataSource implements AuthDataSouce {
     }
 
     @Override
-    public Maybe<NaverOauthInfo> getAuth(@NonNull String refreshToken) {
+    public Maybe<NaverOauthInfo> getAuth(@NonNull String uniqueId, @NonNull String accessToken) {
         return Maybe.create(e -> {
             try {
                 NaverOauthInfo naverOauthInfo = mRealm.where(NaverOauthInfo.class)
-                        .equalTo("refreshToken", refreshToken)
+                        .equalTo("uniqueId", uniqueId)
                         .findFirst();
 
                 e.onSuccess(naverOauthInfo);
@@ -66,19 +66,21 @@ public class AuthLocalDataSource implements AuthDataSouce {
     @Override
     public Maybe<NaverOauthInfo> updateAuth(@NonNull NaverOauthInfo naverOauthInfo) {
         return updateAuth(
-                naverOauthInfo.getRefreshToken(),
+                naverOauthInfo.getUniqueId(),
                 naverOauthInfo.getAccessToken(),
                 naverOauthInfo.getExpiresAt());
     }
 
     @Override
-    public Maybe<NaverOauthInfo> updateAuth(@NonNull String refreshToken,
+    public Maybe<NaverOauthInfo> updateAuth(@NonNull String uniqueId,
                                             @NonNull String accessToken,
                                             long expiresAt) {
         return Maybe.create(e -> {
             try {
                 mRealm.beginTransaction();
-                NaverOauthInfo naverOauthInfo = mRealm.where(NaverOauthInfo.class).equalTo("refreshToken", refreshToken).findFirst();
+                NaverOauthInfo naverOauthInfo = mRealm.where(NaverOauthInfo.class)
+                        .equalTo("uniqueId", uniqueId)
+                        .findFirst();
                 naverOauthInfo.setAccessToken(accessToken);
                 naverOauthInfo.setExpiresAt(expiresAt);
                 mRealm.commitTransaction();
@@ -93,14 +95,14 @@ public class AuthLocalDataSource implements AuthDataSouce {
 
     @Override
     public void deleteAuth(@NonNull NaverOauthInfo naverOauthInfo) {
-        deleteAuth(naverOauthInfo.getRefreshToken());
+        deleteAuth(naverOauthInfo.getUniqueId(),naverOauthInfo.getAccessToken());
     }
 
     @Override
-    public void deleteAuth(@NonNull String refreshToken) {
+    public void deleteAuth(@NonNull String uniqueId, @NonNull String accessToken) {
         mRealm.executeTransactionAsync(realm ->
                 realm.where(NaverOauthInfo.class)
-                .equalTo("refreshToken",refreshToken)
+                .equalTo("uniqueId",uniqueId)
                 .findFirst()
                 .deleteFromRealm());
     }

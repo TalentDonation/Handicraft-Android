@@ -8,7 +8,7 @@ import kr.co.landvibe.handicraft.R;
 import kr.co.landvibe.handicraft.data.domain.Furniture;
 import kr.co.landvibe.handicraft.furniture.list.adapter.contract.FurnitureListAdapterContract;
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
-import kr.co.landvibe.handicraft.utils.LogUtil;
+import kr.co.landvibe.handicraft.utils.LogUtils;
 
 public class FurnitureListPresenterImpl implements FurnitureListPresenter.Presenter, OnItemClickListener {
 
@@ -66,7 +66,7 @@ public class FurnitureListPresenterImpl implements FurnitureListPresenter.Presen
     @Override
     public void onItemClick(Object object) {
         Furniture furniture = (Furniture) object;
-        LogUtil.d("clicked : " + furniture.getId());
+        LogUtils.d("clicked : " + furniture.getId());
 
         // move to furniture detail page
         view.moveToFurnitureDetailActivity();

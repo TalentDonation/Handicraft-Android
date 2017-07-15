@@ -9,14 +9,16 @@ public class NaverOauthInfo extends RealmObject{
     private String refreshToken;
     private long expiresAt;
     private String tokenType;
+    private String uniqueId;
 
     public NaverOauthInfo(){}
 
-    public NaverOauthInfo(String accessToken, String refreshToken, long expiresAt, String tokenType) {
+    public NaverOauthInfo(String accessToken, String refreshToken, long expiresAt, String tokenType, String uniqueId) {
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;
         this.expiresAt = expiresAt;
         this.tokenType = tokenType;
+        this.uniqueId = uniqueId;
     }
 
     public String getAccessToken() {
@@ -49,5 +51,13 @@ public class NaverOauthInfo extends RealmObject{
 
     public void setTokenType(String tokenType) {
         this.tokenType = tokenType;
+    }
+
+    public String getUniqueId() {
+        return uniqueId;
+    }
+
+    public void setUniqueId(String uniqueId) {
+        this.uniqueId = uniqueId;
     }
 }

@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import kr.co.landvibe.handicraft.R;
 import kr.co.landvibe.handicraft.masterProfile.MasterProfileActivity;
-import kr.co.landvibe.handicraft.utils.LogUtil;
+import kr.co.landvibe.handicraft.utils.LogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity
                 .subscribe(
                         name -> mTabLayout.addTab(mTabLayout.newTab().setText(name)),    // binding
                         Throwable::printStackTrace,                                     // error
-                        () -> LogUtil.d("onComplete"));                                // completed
+                        () -> LogUtils.d("onComplete"));                                // completed
 
         // View Pager
         mViewPager.setAdapter(new ViewPageAdapter(getSupportFragmentManager(), mTabLayout.getTabCount()));

@@ -27,7 +27,7 @@ import kr.co.landvibe.handicraft.R;
 import kr.co.landvibe.handicraft.furniture.detail.presenter.FurnitureDetailPresenter;
 import kr.co.landvibe.handicraft.furniture.detail.presenter.FurnitureDetailPresenterImpl;
 import kr.co.landvibe.handicraft.furniture.map.LocationActivity;
-import kr.co.landvibe.handicraft.utils.LogUtil;
+import kr.co.landvibe.handicraft.utils.LogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class FurnitureDetailActivity extends AppCompatActivity
@@ -136,12 +136,12 @@ public class FurnitureDetailActivity extends AppCompatActivity
 
     @OnClick(R.id.star_container)
     public void starAtThisFurniture(View v){
-        LogUtil.d("starAtThisFurniture()");
+        LogUtils.d("starAtThisFurniture()");
     }
 
     @OnClick(R.id.buy_container)
     public void contactToSeller(View v){
-        LogUtil.d("contactToSeller()");
+        LogUtils.d("contactToSeller()");
     }
 
     @Override

@@ -25,7 +25,7 @@ import kr.co.landvibe.handicraft.furniture.detail.FurnitureDetailActivity;
 import kr.co.landvibe.handicraft.furniture.list.adapter.FurnitureListAdapter;
 import kr.co.landvibe.handicraft.furniture.list.presenter.FurnitureListPresenter;
 import kr.co.landvibe.handicraft.furniture.list.presenter.FurnitureListPresenterImpl;
-import kr.co.landvibe.handicraft.utils.LogUtil;
+import kr.co.landvibe.handicraft.utils.LogUtils;
 
 public class FurnitureListFragment extends Fragment
         implements FurnitureListPresenter.View, SwipeRefreshLayout.OnRefreshListener {
@@ -48,21 +48,21 @@ public class FurnitureListFragment extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LogUtil.d("onCreate()");
+        LogUtils.d("onCreate()");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_furniture_list, container, false);
         ButterKnife.bind(this, view);
-        LogUtil.d("onCreateView()");
+        LogUtils.d("onCreateView()");
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        LogUtil.d("onActivityCreated()");
+        LogUtils.d("onActivityCreated()");
 
         init();
     }

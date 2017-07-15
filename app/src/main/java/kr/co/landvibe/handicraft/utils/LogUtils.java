@@ -5,7 +5,7 @@ import android.util.Log;
 
 import kr.co.landvibe.handicraft.GlobalApp;
 
-public class LogUtil {
+public class LogUtils {
 
     static final String TAG = "HANDICRAFT";
 

@@ -28,12 +28,19 @@ public class AuthRepository implements AuthDataSouce {
     }
 
     public static AuthRepository getInstance(@NonNull AuthLocalDataSource authLocalDataSource,
-                                             @NonNull AuthRemoteDataSource authRemoteDataSource){
-        if(INSTANCE==null){
-            INSTANCE = new AuthRepository(authLocalDataSource,authRemoteDataSource);
+                                             @NonNull AuthRemoteDataSource authRemoteDataSource) {
+        if (INSTANCE == null) {
+            INSTANCE = new AuthRepository(authLocalDataSource, authRemoteDataSource);
         }
         return INSTANCE;
     }
+
+    public void destroyInstance() {
+        mAuthLocalDataSource.destroyInstance();
+        mAuthRemoteDataSource.destroyInstance();
+        INSTANCE = null;
+    }
+
 
     @Override
     public Maybe<NaverOauthInfo> createAuth(@NonNull NaverOauthInfo naverOauthInfo) {
@@ -41,9 +48,10 @@ public class AuthRepository implements AuthDataSouce {
     }
 
     @Override
-    public Maybe<NaverOauthInfo> getAuth(@NonNull String refreshToken) {
+    public Maybe<NaverOauthInfo> getAuth(@NonNull String uniqueId, @NonNull String accessToken) {
         return null;
     }
+
 
     @Override
     public Maybe<NaverOauthInfo> updateAuth(@NonNull NaverOauthInfo naverOauthInfo) {
@@ -51,9 +59,7 @@ public class AuthRepository implements AuthDataSouce {
     }
 
     @Override
-    public Maybe<NaverOauthInfo> updateAuth(@NonNull String refreshToken,
-                                            @NonNull String accessToken,
-                                            long expiresAt) {
+    public Maybe<NaverOauthInfo> updateAuth(@NonNull String uniqueId, @NonNull String accessToken, long expiresAt) {
         return null;
     }
 
@@ -63,7 +69,9 @@ public class AuthRepository implements AuthDataSouce {
     }
 
     @Override
-    public void deleteAuth(@NonNull String refreshToken) {
+    public void deleteAuth(@NonNull String uniqueId, @NonNull String accessToken) {
 
     }
+
+
 }

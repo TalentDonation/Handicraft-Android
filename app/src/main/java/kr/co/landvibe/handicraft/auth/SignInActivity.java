@@ -21,7 +21,7 @@ import kr.co.landvibe.handicraft.auth.presenter.SignInPresenter;
 import kr.co.landvibe.handicraft.auth.presenter.SignInPresenterImpl;
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
 import kr.co.landvibe.handicraft.main.MainActivity;
-import kr.co.landvibe.handicraft.utils.LogUtil;
+import kr.co.landvibe.handicraft.utils.LogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SignInActivity extends AppCompatActivity implements SignInPresenter.View {
@@ -94,18 +94,18 @@ public class SignInActivity extends AppCompatActivity implements SignInPresenter
                 String refreshToken = mOAuthLoginInstance.getRefreshToken(mContext);
                 long expiresAt = mOAuthLoginInstance.getExpiresAt(mContext);
                 String tokenType = mOAuthLoginInstance.getTokenType(mContext);
-                LogUtil.d("accessToken: " + accessToken);
-                LogUtil.d("refreshToken: " + refreshToken);
-                LogUtil.d("expiresAt: " + String.valueOf(expiresAt));
-                LogUtil.d("tokenType: " + tokenType);
-                LogUtil.d("state: " + mOAuthLoginInstance.getState(mContext).toString());
+                LogUtils.d("accessToken: " + accessToken);
+                LogUtils.d("refreshToken: " + refreshToken);
+                LogUtils.d("expiresAt: " + String.valueOf(expiresAt));
+                LogUtils.d("tokenType: " + tokenType);
+                LogUtils.d("state: " + mOAuthLoginInstance.getState(mContext).toString());
 
                 mSignInPresenter.signInWithNaverOauth(
-                        new NaverOauthInfo(accessToken, refreshToken, expiresAt, tokenType));
+                        new NaverOauthInfo(accessToken, refreshToken, expiresAt, tokenType,""));
             } else {
                 String errorCode = mOAuthLoginInstance.getLastErrorCode(mContext).getCode();
                 String errorDesc = mOAuthLoginInstance.getLastErrorDesc(mContext);
-                LogUtil.d("errorCode:" + errorCode + ", errorDesc:" + errorDesc);
+                LogUtils.d("errorCode:" + errorCode + ", errorDesc:" + errorDesc);
             }
         }
     };
