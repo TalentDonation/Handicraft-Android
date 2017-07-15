@@ -33,7 +33,8 @@
 -keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 
 # naver login
-#-libraryjars ../PORJECT_NAME/libs/naveroauthloginlib-4.x.x.jar
-#-keep public class com.nhn.android.naverlogin.** {
-#       public protected *;
-#}
+-libraryjars ../HandiCraft/libs/naveroauthloginlib-4.1.4.jar
+-keep public class com.nhn.android.naverlogin.** {
+       public protected *;
+}
+

@@ -6,6 +6,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.support.multidex.MultiDexApplication;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import kr.co.landvibe.handicraft.utils.LogUtil;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -20,10 +22,11 @@ public class GlobalApp extends MultiDexApplication {
         super.onCreate();
         this.DEBUG = isDebuggable(this);
 
-        FontInit();
-
         LogUtil.d("onCreate");
         mInstance = this;
+
+        initFont();
+        initRealm();
 
     }
 
@@ -49,7 +52,7 @@ public class GlobalApp extends MultiDexApplication {
     /**
      * 기본 폰트 설정
      */
-    public void FontInit() {
+    public void initFont() {
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/BMDOHYEON_ttf.ttf")
                 .setFontAttrId(R.attr.fontPath)
@@ -77,5 +80,15 @@ public class GlobalApp extends MultiDexApplication {
         return debuggable;
     }
 
+    /**
+     * Realm 설정 초기화
+     */
+    private void initRealm(){
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder().build();
+        Realm.deleteRealm(config);
+        Realm.setDefaultConfiguration(config);
+
+    }
 
 }

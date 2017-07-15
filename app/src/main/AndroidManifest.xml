@@ -7,14 +7,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".GlobalApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".GlobalApp"
-        android:theme="@style/CustomAppTheme"
-        >
+        android:theme="@style/CustomAppTheme">
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -23,8 +22,7 @@
         <activity
             android:name=".main.MainActivity"
             android:label="@string/app_name"
-            android:launchMode="singleTask"
-            >
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,37 +32,41 @@
 
         <activity
             android:name=".masterProfile.MasterProfileActivity"
-            android:parentActivityName=".main.MainActivity"
-            >
+            android:parentActivityName=".main.MainActivity">
 
         </activity>
         <activity
             android:name=".furniture.detail.FurnitureDetailActivity"
-            android:parentActivityName=".main.MainActivity"
             android:launchMode="singleTask"
-            >
+            android:parentActivityName=".main.MainActivity">
 
         </activity>
         <activity
             android:name=".furniture.map.LocationActivity"
-            android:parentActivityName=".furniture.detail.FurnitureDetailActivity"
-            >
+            android:parentActivityName=".furniture.detail.FurnitureDetailActivity">
 
         </activity>
         <activity
             android:name=".furniture.add.FurnitureAddActivity"
-            android:parentActivityName=".main.MainActivity"
             android:launchMode="singleTask"
-            android:theme="@style/BlueCustomAppTheme"
-            >
+            android:parentActivityName=".main.MainActivity"
+            android:theme="@style/BlueCustomAppTheme">
 
         </activity>
         <activity
             android:name=".furniture.preview.FurniturePreviewActivity"
-            android:parentActivityName=".furniture.add.FurnitureAddActivity"
-            >
+            android:parentActivityName=".furniture.add.FurnitureAddActivity">
 
         </activity>
+
+
+        <!-- 네이버 아이디로 로그인에서 사용하는 액티비티를 등록 -->
+        <activity
+            android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
+            android:label="OAuth2.0 In-app" />
 
     </application>
 

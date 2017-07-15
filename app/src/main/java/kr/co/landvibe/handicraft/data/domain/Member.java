@@ -8,21 +8,14 @@ public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String id;
-
     private String name;
-
     private String phone;
-
     private String gender;
-
     private String address;
-
     private String feature;
-
     private Date joinAt;
 
-    public Member() {
-    }
+    public Member(){}
 
     public Member(String id, String name, String phone, String gender, String address, String feature, Date joinAt) {
         this.id = id;
@@ -58,6 +51,14 @@ public class Member implements Serializable {
         this.phone = phone;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -80,19 +81,5 @@ public class Member implements Serializable {
 
     public void setJoinAt(Date joinAt) {
         this.joinAt = joinAt;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    @Override
-    public String toString() {
-        return "Member [id=" + id + ", name=" + name + ", phone=" + phone + ", gender=" + gender + ", address=" + address
-                + ", feature" + feature + ", joinAt" + joinAt + "]\n";
     }
 }

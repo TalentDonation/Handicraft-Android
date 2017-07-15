@@ -10,47 +10,28 @@ public class Furniture implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String id;
-
     private String title;
-
     private String state; // 판매 or 공유
-
     private String grade; // 제품 상태 (A,B,C,F)
-
     private String description;
-
     private List<String> imageUrl;
-
     private String type; // 가구 타입(의자, 쇼파, 책장, ...)
-
     private String brand; // 브랜드
-
     private int periodOfUse; // 사용 기간
-
     private long price; // 판매가( 공유시 0원)
-
     private int width; // 가로, x
-
     private int length; // 세로, y
-
     private int height; // 높이, z
-
     private String location; // 거래지역
-
     private double lat; // 위도
-
     private double lon; // 경도
-
     private Date createAt; // 업로드 날짜
 
     private int resId; //임시
 
-    public Furniture(){}
+    public Furniture() {}
 
-    public Furniture(String id, String title, String state, String grade, String description,
-                     List<String> imageUrl, String type, String brand, int periodOfUse,
-                     long price, int width, int length, int height, String location,
-                     double lat, double lon, Date createAt, int resId) {
+    public Furniture(String id, String title, String state, String grade, String description, List<String> imageUrl, String type, String brand, int periodOfUse, long price, int width, int length, int height, String location, double lat, double lon, Date createAt, int resId) {
         this.id = id;
         this.title = title;
         this.state = state;
@@ -65,8 +46,8 @@ public class Furniture implements Serializable {
         this.length = length;
         this.height = height;
         this.location = location;
-        this.lat=lat;
-        this.lon=lon;
+        this.lat = lat;
+        this.lon = lon;
         this.createAt = createAt;
         this.resId = resId;
     }
@@ -183,22 +164,6 @@ public class Furniture implements Serializable {
         this.location = location;
     }
 
-    public int getResId() {
-        return resId;
-    }
-
-    public void setResId(int resId) {
-        this.resId = resId;
-    }
-
-    public Date getCreateAt() {
-        return createAt;
-    }
-
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
-    }
-
     public double getLat() {
         return lat;
     }
@@ -213,5 +178,21 @@ public class Furniture implements Serializable {
 
     public void setLon(double lon) {
         this.lon = lon;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
+
+    public int getResId() {
+        return resId;
+    }
+
+    public void setResId(int resId) {
+        this.resId = resId;
     }
 }
