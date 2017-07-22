@@ -7,9 +7,9 @@ import io.reactivex.Maybe;
 import io.reactivex.annotations.Nullable;
 import io.realm.Realm;
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
-import kr.co.landvibe.handicraft.data.source.auth.AuthDataSouce;
+import kr.co.landvibe.handicraft.data.source.auth.AuthDataSource;
 
-public class AuthLocalDataSource implements AuthDataSouce {
+public class AuthLocalDataSource implements AuthDataSource {
 
     @Nullable
     private static AuthLocalDataSource INSTANCE;

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Maybe;
 import io.reactivex.annotations.Nullable;
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
-import kr.co.landvibe.handicraft.data.source.auth.AuthDataSouce;
+import kr.co.landvibe.handicraft.data.source.auth.AuthDataSource;
 import kr.co.landvibe.handicraft.error.ForbiddenException;
 import kr.co.landvibe.handicraft.error.InternalServerException;
 import kr.co.landvibe.handicraft.error.UnAuthorizationException;
@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static kr.co.landvibe.handicraft.utils.DefineUtils.HOST_URL;
 
-public class AuthRemoteDataSource implements AuthDataSouce {
+public class AuthRemoteDataSource implements AuthDataSource {
 
     @Nullable
     private static AuthRemoteDataSource INSTANCE;
