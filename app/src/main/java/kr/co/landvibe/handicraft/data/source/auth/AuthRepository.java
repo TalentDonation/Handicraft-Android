@@ -10,7 +10,10 @@ import kr.co.landvibe.handicraft.data.source.auth.local.AuthLocalDataSource;
 import kr.co.landvibe.handicraft.data.source.auth.remote.AuthRemoteDataSource;
 
 
-public class AuthRepository implements AuthDataSouce {
+
+// Rxjava 익숙해질때까지 사용 x
+@Deprecated
+public class AuthRepository implements AuthDataSource {
 
     @Nullable
     private static AuthRepository INSTANCE = null;
@@ -44,7 +47,7 @@ public class AuthRepository implements AuthDataSouce {
 
     @Override
     public Maybe<NaverOauthInfo> createAuth(@NonNull NaverOauthInfo naverOauthInfo) {
-        return null;
+       return null;
     }
 
     @Override
@@ -65,7 +68,7 @@ public class AuthRepository implements AuthDataSouce {
 
     @Override
     public void deleteAuth(@NonNull NaverOauthInfo naverOauthInfo) {
-
+        deleteAuth(naverOauthInfo.getUniqueId(),naverOauthInfo.getAccessToken());
     }
 
     @Override

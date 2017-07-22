@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import io.reactivex.Maybe;
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
 
-public interface AuthDataSouce {
+public interface AuthDataSource {
 
     Maybe<NaverOauthInfo> createAuth(@NonNull NaverOauthInfo naverOauthInfo);
 

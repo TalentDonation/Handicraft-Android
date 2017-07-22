@@ -27,16 +27,16 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class SignInActivity extends AppCompatActivity implements SignInPresenter.View {
 
     @BindString(R.string.naver_client_id)
-    private String OAUTH_CLIENT_ID;
+    String OAUTH_CLIENT_ID;
 
     @BindString(R.string.naver_client_secret)
-    private String OAUTH_CLIENT_SECRET;
+    String OAUTH_CLIENT_SECRET;
 
     @BindString(R.string.naver_client_name)
-    private String OAUTH_CLIENT_NAME;
+    String OAUTH_CLIENT_NAME;
 
     @BindView(R.id.buttonOAuthLoginImg)
-    private OAuthLoginButton mOAuthLoginButton;
+    OAuthLoginButton mOAuthLoginButton;
 
     private OAuthLogin mOAuthLoginInstance;
     private Context mContext;
