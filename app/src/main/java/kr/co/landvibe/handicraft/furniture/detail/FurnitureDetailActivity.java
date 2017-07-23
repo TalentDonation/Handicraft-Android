@@ -24,14 +24,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import kr.co.landvibe.handicraft.R;
-import kr.co.landvibe.handicraft.furniture.detail.presenter.FurnitureDetailPresenter;
-import kr.co.landvibe.handicraft.furniture.detail.presenter.FurnitureDetailPresenterImpl;
 import kr.co.landvibe.handicraft.furniture.map.LocationActivity;
 import kr.co.landvibe.handicraft.utils.LogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class FurnitureDetailActivity extends AppCompatActivity
-        implements FurnitureDetailPresenter.View, BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
+        implements FurnitureDetailContract.View, BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
     @BindView(R.id.toolbar_furniture_detail)
     Toolbar mToolbar;
@@ -68,7 +66,7 @@ public class FurnitureDetailActivity extends AppCompatActivity
     @BindView(R.id.tv_furniture_location)
     TextView mLocationTv;
 
-    private FurnitureDetailPresenter.Presenter mFurnitureDetailPresenter;
+    private FurnitureDetailContract.Presenter mFurnitureDetailPresenter;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -116,7 +114,7 @@ public class FurnitureDetailActivity extends AppCompatActivity
         setSliderHeight(mFurnitureImageSlider);
 
 
-        mFurnitureDetailPresenter = new FurnitureDetailPresenterImpl();
+        mFurnitureDetailPresenter = new FurnitureDetailPresenter();
         mFurnitureDetailPresenter.attachView(this);
         mFurnitureDetailPresenter.loadFurnitureDetailData();
 
@@ -185,7 +183,7 @@ public class FurnitureDetailActivity extends AppCompatActivity
     }
 
     /**
-     * FurnitureDetailPresenter.View
+     * FurnitureDetailContract.View
      */
     @Override
     public void showLoading() {

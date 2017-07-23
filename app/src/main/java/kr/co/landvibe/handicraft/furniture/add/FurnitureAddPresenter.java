@@ -1,12 +1,12 @@
-package kr.co.landvibe.handicraft.furniture.add.presenter;
+package kr.co.landvibe.handicraft.furniture.add;
 
 
-public class FurnitureAddPresenterImpl implements FurnitureAddPresenter.Presenter {
+public class FurnitureAddPresenter implements FurnitureAddContract.Presenter {
 
-    private FurnitureAddPresenter.View view;
+    private FurnitureAddContract.View view;
 
     @Override
-    public void attachView(FurnitureAddPresenter.View view) {
+    public void attachView(FurnitureAddContract.View view) {
         this.view=view;
     }
 

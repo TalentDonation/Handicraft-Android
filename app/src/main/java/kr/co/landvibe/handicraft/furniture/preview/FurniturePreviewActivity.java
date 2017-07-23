@@ -10,17 +10,15 @@ import android.support.v7.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kr.co.landvibe.handicraft.R;
-import kr.co.landvibe.handicraft.furniture.preview.presenter.FurniturePreviewPresenter;
-import kr.co.landvibe.handicraft.furniture.preview.presenter.FurniturePreviewPresenterImpl;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class FurniturePreviewActivity extends AppCompatActivity
-    implements FurniturePreviewPresenter.View {
+    implements FurniturePreviewContract.View {
 
     @BindView(R.id.toolbar_furniture_preview)
     Toolbar mToolbar;
 
-    private FurniturePreviewPresenter.Presenter mFurniturePreviewPresenter;
+    private FurniturePreviewContract.Presenter mFurniturePreviewPresenter;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -41,7 +39,7 @@ public class FurniturePreviewActivity extends AppCompatActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        mFurniturePreviewPresenter = new FurniturePreviewPresenterImpl();
+        mFurniturePreviewPresenter = new FurniturePreviewPresenter();
         mFurniturePreviewPresenter.attachView(this);
     }
 
@@ -53,7 +51,7 @@ public class FurniturePreviewActivity extends AppCompatActivity
 
 
     /**
-     * FurniturePreviewPresenter.View
+     * FurniturePreviewContract.View
      */
     @Override
     public void showLoading() {
