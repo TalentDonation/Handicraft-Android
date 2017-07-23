@@ -21,15 +21,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import kr.co.landvibe.handicraft.R;
-import kr.co.landvibe.handicraft.furniture.add.presenter.FurnitureAddPresenter;
-import kr.co.landvibe.handicraft.furniture.add.presenter.FurnitureAddPresenterImpl;
 import kr.co.landvibe.handicraft.furniture.preview.FurniturePreviewActivity;
 import kr.co.landvibe.handicraft.type.StateType;
 import kr.co.landvibe.handicraft.type.TradeType;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class FurnitureAddActivity extends AppCompatActivity
-        implements FurnitureAddPresenter.View {
+        implements FurnitureAddContract.View {
 
     @BindView(R.id.toolbar_furniture_add)
     Toolbar mToolbar;
@@ -57,7 +55,7 @@ public class FurnitureAddActivity extends AppCompatActivity
     private AlertDialog mStateChoiceDialog;
     private AlertDialog mTradeChoiceDialog;
 
-    private FurnitureAddPresenter.Presenter mFurnitureAddPresenter;
+    private FurnitureAddContract.Presenter mFurnitureAddPresenter;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -118,7 +116,7 @@ public class FurnitureAddActivity extends AppCompatActivity
                     mTradeChoiceDialog.dismiss();
                 })).create();
 
-        mFurnitureAddPresenter = new FurnitureAddPresenterImpl();
+        mFurnitureAddPresenter = new FurnitureAddPresenter();
         mFurnitureAddPresenter.attachView(this);
     }
     @OnClick(R.id.state_container)
@@ -138,7 +136,7 @@ public class FurnitureAddActivity extends AppCompatActivity
     }
 
     /**
-     * FurnitureAddPresenter.View
+     * FurnitureAddContract.View
      */
     @Override
     public void showLoading() {

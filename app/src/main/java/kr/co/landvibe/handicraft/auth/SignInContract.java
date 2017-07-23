@@ -1,9 +1,9 @@
-package kr.co.landvibe.handicraft.auth.presenter;
+package kr.co.landvibe.handicraft.auth;
 
 
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
 
-public interface SignInPresenter {
+public interface SignInContract {
 
     interface View {
 
@@ -17,7 +17,7 @@ public interface SignInPresenter {
 
     interface Presenter {
 
-        void attachView(SignInPresenter.View view);
+        void attachView(SignInContract.View view);
 
         void detachView();
 

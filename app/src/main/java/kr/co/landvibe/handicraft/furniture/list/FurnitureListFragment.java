@@ -23,12 +23,10 @@ import kr.co.landvibe.handicraft.R;
 import kr.co.landvibe.handicraft.furniture.add.FurnitureAddActivity;
 import kr.co.landvibe.handicraft.furniture.detail.FurnitureDetailActivity;
 import kr.co.landvibe.handicraft.furniture.list.adapter.FurnitureListAdapter;
-import kr.co.landvibe.handicraft.furniture.list.presenter.FurnitureListPresenter;
-import kr.co.landvibe.handicraft.furniture.list.presenter.FurnitureListPresenterImpl;
 import kr.co.landvibe.handicraft.utils.LogUtils;
 
 public class FurnitureListFragment extends Fragment
-        implements FurnitureListPresenter.View, SwipeRefreshLayout.OnRefreshListener {
+        implements FurnitureListContract.View, SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.rv_furniture_list)
     RecyclerView mFurnitureListView;
@@ -43,7 +41,7 @@ public class FurnitureListFragment extends Fragment
 
     private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
 
-    private FurnitureListPresenterImpl mFurnitureListPresenter;
+    private FurnitureListPresenter mFurnitureListPresenter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,7 +93,7 @@ public class FurnitureListFragment extends Fragment
         mFurnitureListView.setHasFixedSize(true);
 
         // Set Presenter
-        mFurnitureListPresenter = new FurnitureListPresenterImpl();
+        mFurnitureListPresenter = new FurnitureListPresenter();
         mFurnitureListPresenter.attachView(this);
         mFurnitureListPresenter.setFurnitureListAdapterModel(mFurnitureListAdapter);
         mFurnitureListPresenter.setFurnitureListAdapterView(mFurnitureListAdapter);
@@ -119,7 +117,7 @@ public class FurnitureListFragment extends Fragment
 
 
     /**
-     * FurnitureListPresenter.View
+     * FurnitureListContract.View
      */
     @Override
     public void showLoading() {
