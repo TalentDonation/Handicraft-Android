@@ -55,7 +55,7 @@ public class MasterProfileActivity extends AppCompatActivity {
     private void init(){
         // Toolbar
         setSupportActionBar(mToolbar);
-        mToolbar.setTitle("육상은");
+        mToolbar.setTitle("김건희");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
