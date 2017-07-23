@@ -1,4 +1,4 @@
-package kr.co.landvibe.handicraft.auth.presenter;
+package kr.co.landvibe.handicraft.auth;
 
 
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
@@ -7,14 +7,14 @@ import kr.co.landvibe.handicraft.data.source.auth.AuthRepository;
 import kr.co.landvibe.handicraft.data.source.auth.local.AuthLocalDataSource;
 import kr.co.landvibe.handicraft.data.source.auth.remote.AuthRemoteDataSource;
 
-public class SignInPresenterImpl implements SignInPresenter.Presenter {
+public class SignInPresenter implements SignInContract.Presenter {
 
-    private SignInPresenter.View view;
+    private SignInContract.View view;
 
     private AuthDataSource authDataSource;
 
     @Override
-    public void attachView(SignInPresenter.View view) {
+    public void attachView(SignInContract.View view) {
         this.view=view;
         authDataSource = AuthRepository.getInstance(
                 AuthLocalDataSource.getInstance(),

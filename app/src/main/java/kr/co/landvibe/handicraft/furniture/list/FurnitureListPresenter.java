@@ -1,4 +1,4 @@
-package kr.co.landvibe.handicraft.furniture.list.presenter;
+package kr.co.landvibe.handicraft.furniture.list;
 
 
 import java.util.ArrayList;
@@ -10,15 +10,15 @@ import kr.co.landvibe.handicraft.furniture.list.adapter.contract.FurnitureListAd
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
 import kr.co.landvibe.handicraft.utils.LogUtils;
 
-public class FurnitureListPresenterImpl implements FurnitureListPresenter.Presenter, OnItemClickListener {
+public class FurnitureListPresenter implements FurnitureListContract.Presenter, OnItemClickListener {
 
-    private FurnitureListPresenter.View view;
+    private FurnitureListContract.View view;
 
     private FurnitureListAdapterContract.View mAdapterView;
     private FurnitureListAdapterContract.Model mAdapterModel;
 
     @Override
-    public void attachView(FurnitureListPresenter.View view) {
+    public void attachView(FurnitureListContract.View view) {
         this.view=view;
     }
 

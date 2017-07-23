@@ -17,14 +17,12 @@ import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kr.co.landvibe.handicraft.R;
-import kr.co.landvibe.handicraft.auth.presenter.SignInPresenter;
-import kr.co.landvibe.handicraft.auth.presenter.SignInPresenterImpl;
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
 import kr.co.landvibe.handicraft.main.MainActivity;
 import kr.co.landvibe.handicraft.utils.LogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class SignInActivity extends AppCompatActivity implements SignInPresenter.View {
+public class SignInActivity extends AppCompatActivity implements SignInContract.View {
 
     @BindString(R.string.naver_client_id)
     String OAUTH_CLIENT_ID;
@@ -41,7 +39,7 @@ public class SignInActivity extends AppCompatActivity implements SignInPresenter
     private OAuthLogin mOAuthLoginInstance;
     private Context mContext;
 
-    private SignInPresenter.Presenter mSignInPresenter;
+    private SignInContract.Presenter mSignInPresenter;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -67,7 +65,7 @@ public class SignInActivity extends AppCompatActivity implements SignInPresenter
 
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
 
-        mSignInPresenter = new SignInPresenterImpl();
+        mSignInPresenter = new SignInPresenter();
         mSignInPresenter.attachView(this);
         mSignInPresenter.checkSessionNaverOauth();
     }
@@ -111,7 +109,7 @@ public class SignInActivity extends AppCompatActivity implements SignInPresenter
     };
 
     /**
-     * SignInPresenter.View
+     * SignInContract.View
      */
     @Override
     public void showLoading() {

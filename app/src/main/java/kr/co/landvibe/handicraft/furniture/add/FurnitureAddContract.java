@@ -1,7 +1,7 @@
-package kr.co.landvibe.handicraft.furniture.add.presenter;
+package kr.co.landvibe.handicraft.furniture.add;
 
 
-public interface FurnitureAddPresenter {
+public interface FurnitureAddContract {
 
     interface View{
 
@@ -17,7 +17,7 @@ public interface FurnitureAddPresenter {
 
     interface Presenter{
 
-        void attachView(FurnitureAddPresenter.View view);
+        void attachView(FurnitureAddContract.View view);
 
         void detachView();
 

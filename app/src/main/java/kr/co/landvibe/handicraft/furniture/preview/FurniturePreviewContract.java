@@ -1,6 +1,6 @@
-package kr.co.landvibe.handicraft.furniture.preview.presenter;
+package kr.co.landvibe.handicraft.furniture.preview;
 
-public interface FurniturePreviewPresenter {
+public interface FurniturePreviewContract {
 
     interface View{
 
@@ -14,7 +14,7 @@ public interface FurniturePreviewPresenter {
 
     interface Presenter{
 
-        void attachView(FurniturePreviewPresenter.View view);
+        void attachView(FurniturePreviewContract.View view);
 
         void detachView();
 
