@@ -17,7 +17,6 @@ import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kr.co.landvibe.handicraft.R;
-import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
 import kr.co.landvibe.handicraft.main.MainActivity;
 import kr.co.landvibe.handicraft.utils.LogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -79,8 +78,9 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
 
     @Override
     protected void onDestroy() {
-        mOAuthLoginHandler = null;
         mSignInPresenter.detachView();
+        mSignInPresenter=null;
+        mOAuthLoginHandler = null;
         super.onDestroy();
     }
 
@@ -98,8 +98,7 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
                 LogUtils.d("tokenType: " + tokenType);
                 LogUtils.d("state: " + mOAuthLoginInstance.getState(mContext).toString());
 
-                mSignInPresenter.signInWithNaverOauth(
-                        new NaverOauthInfo(accessToken, refreshToken, expiresAt, tokenType,""));
+                mSignInPresenter.signInWithNaverOauth(accessToken, refreshToken, expiresAt, tokenType);
             } else {
                 String errorCode = mOAuthLoginInstance.getLastErrorCode(mContext).getCode();
                 String errorDesc = mOAuthLoginInstance.getLastErrorDesc(mContext);
