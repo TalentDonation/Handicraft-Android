@@ -14,8 +14,6 @@ import retrofit2.http.Query;
 
 public interface AuthService {
 
-    String HOST_URL = "";
-
     @Headers("User-Agent: Android")
     @FormUrlEncoded
     @POST("/auth/signup")

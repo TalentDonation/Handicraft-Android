@@ -9,8 +9,6 @@ import retrofit2.http.Header;
 
 public interface NaverAuthService {
 
-    String NAVER_HOST_URL = "https://openapi.naver.com";
-
     @GET("/v1/nid/me")
     Maybe<Response<Member>> getUserInfo(
             @Header("Authorization") String accessToken

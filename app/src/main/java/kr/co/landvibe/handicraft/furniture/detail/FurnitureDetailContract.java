@@ -1,6 +1,8 @@
 package kr.co.landvibe.handicraft.furniture.detail;
 
 
+import kr.co.landvibe.handicraft.data.domain.Furniture;
+
 public interface FurnitureDetailContract {
 
     interface View{
@@ -13,6 +15,7 @@ public interface FurnitureDetailContract {
 
         void showContactDialog();
 
+        void bindData(Furniture furniture);
     }
 
     interface Presenter{
@@ -21,7 +24,7 @@ public interface FurnitureDetailContract {
 
         void detachView();
 
-        void loadFurnitureDetailData();
+        void loadFurniture(long id);
     }
 
 }

@@ -130,9 +130,10 @@ public class FurnitureListFragment extends Fragment
     }
 
     @Override
-    public void moveToFurnitureDetailActivity() {
+    public void moveToFurnitureDetailActivity(long id) {
         final Intent intent = new Intent(getActivity(), FurnitureDetailActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        intent.putExtra("id",id);
         startActivity(intent);
     }
 

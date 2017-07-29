@@ -3,10 +3,9 @@ package kr.co.landvibe.handicraft.data.source.auth.remote;
 
 import android.support.annotation.NonNull;
 
-import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Maybe;
 import io.reactivex.annotations.Nullable;
+import kr.co.landvibe.handicraft.GlobalApp;
 import kr.co.landvibe.handicraft.data.domain.Member;
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
 import kr.co.landvibe.handicraft.data.source.auth.AuthDataSource;
@@ -20,8 +19,8 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static kr.co.landvibe.handicraft.data.source.auth.remote.AuthService.HOST_URL;
-import static kr.co.landvibe.handicraft.data.source.auth.remote.NaverAuthService.NAVER_HOST_URL;
+import static kr.co.landvibe.handicraft.utils.DefineUtils.NAVER_HOST_URL;
+
 
 public class AuthRemoteDataSource implements AuthDataSource {
 
@@ -33,18 +32,9 @@ public class AuthRemoteDataSource implements AuthDataSource {
     private NaverAuthService mNaverAuthService;
 
     private AuthRemoteDataSource() {
-        OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
-                .connectTimeout(15, TimeUnit.SECONDS)
-                .writeTimeout(15, TimeUnit.SECONDS)
-                .readTimeout(15, TimeUnit.SECONDS)
-                .build();
+        OkHttpClient okHttpClient = GlobalApp.getOkHttpClientInstance();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(HOST_URL)
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
+        Retrofit retrofit = GlobalApp.getRetrofitInstance(okHttpClient);
 
         Retrofit naverRetrofit = new Retrofit.Builder()
                 .baseUrl(NAVER_HOST_URL)
@@ -69,6 +59,7 @@ public class AuthRemoteDataSource implements AuthDataSource {
     public void destroyInstance() {
         INSTANCE = null;
         mAuthService = null;
+        mNaverAuthService = null;
     }
 
     @Override
@@ -78,12 +69,12 @@ public class AuthRemoteDataSource implements AuthDataSource {
                 naverOauthInfo.getExpiresAt(),
                 naverOauthInfo.getMember().getId())
                 .flatMap(response -> {
-                    if(response.isSuccessful()){
+                    if (response.isSuccessful()) {
                         LogUtils.d("Success to create auth");
-                        LogUtils.d("Response Code : "+ response.code());
+                        LogUtils.d("Response Code : " + response.code());
                         return Maybe.just(response.body());
-                    }else {
-                        switch (response.code()){
+                    } else {
+                        switch (response.code()) {
                             case 401:
                                 return Maybe.error(new UnAuthorizationException(response.errorBody().string()));
                             case 500:
@@ -108,12 +99,12 @@ public class AuthRemoteDataSource implements AuthDataSource {
                 naverOauthInfo.getTokenType() + " " + naverOauthInfo.getAccessToken(),
                 naverOauthInfo.getMember().getId())
                 .flatMap(response -> {
-                    if(response.isSuccessful()){
+                    if (response.isSuccessful()) {
                         LogUtils.d("Success to create auth");
-                        LogUtils.d("Response Code : "+ response.code());
+                        LogUtils.d("Response Code : " + response.code());
                         return Maybe.just(response.body());
-                    }else {
-                        switch (response.code()){
+                    } else {
+                        switch (response.code()) {
                             case 401:
                                 return Maybe.error(new UnAuthorizationException(response.errorBody().string()));
                             case 500:
@@ -133,7 +124,7 @@ public class AuthRemoteDataSource implements AuthDataSource {
 
     @Override
     public void deleteAuth(@NonNull NaverOauthInfo naverOauthInfo) {
-        deleteAuth(naverOauthInfo.getMember().getId(),naverOauthInfo.getAccessToken());
+        deleteAuth(naverOauthInfo.getMember().getId(), naverOauthInfo.getAccessToken());
     }
 
     @Override
@@ -142,10 +133,12 @@ public class AuthRemoteDataSource implements AuthDataSource {
                 accessToken,
                 uniqueId)
                 .flatMap(response -> {
-                    if(response.isSuccessful()){
+                    if (response.isSuccessful()) {
+                        LogUtils.d("Success Delete");
+                        LogUtils.d("Response Code : " + response.code());
                         return Maybe.just("Success Delete");
-                    }else {
-                        switch (response.code()){
+                    } else {
+                        switch (response.code()) {
                             case 401:
                                 return Maybe.error(new UnAuthorizationException(response.errorBody().string()));
                             case 403:
@@ -161,12 +154,12 @@ public class AuthRemoteDataSource implements AuthDataSource {
 
     @Override
     public Maybe<Member> getNaverUserInfo(@NonNull String accessToken, @NonNull String tokenType) {
-        return mNaverAuthService.getUserInfo(tokenType+" "+accessToken)
+        return mNaverAuthService.getUserInfo(tokenType + " " + accessToken)
                 .flatMap(response -> {
-                    if(response.isSuccessful()){
+                    if (response.isSuccessful()) {
                         return Maybe.just(response.body());
-                    }else {
-                        switch (response.code()){
+                    } else {
+                        switch (response.code()) {
                             case 401:
                                 return Maybe.error(new UnAuthorizationException(response.errorBody().string()));
                             case 403:

@@ -9,7 +9,7 @@ public class Furniture implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String id;
+    private long id;
     private String title;
     private String state; // 판매 or 공유
     private String grade; // 제품 상태 (A,B,C,F)
@@ -31,7 +31,7 @@ public class Furniture implements Serializable {
 
     public Furniture() {}
 
-    public Furniture(String id, String title, String state, String grade, String description, List<String> imageUrl, String type, String brand, int periodOfUse, long price, int width, int length, int height, String location, double lat, double lon, Date createAt, int resId) {
+    public Furniture(long id, String title, String state, String grade, String description, List<String> imageUrl, String type, String brand, int periodOfUse, long price, int width, int length, int height, String location, double lat, double lon, Date createAt, int resId) {
         this.id = id;
         this.title = title;
         this.state = state;
@@ -52,11 +52,11 @@ public class Furniture implements Serializable {
         this.resId = resId;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
