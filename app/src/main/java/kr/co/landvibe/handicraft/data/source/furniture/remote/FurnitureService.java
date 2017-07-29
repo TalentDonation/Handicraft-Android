@@ -1,10 +1,9 @@
 package kr.co.landvibe.handicraft.data.source.furniture.remote;
 
 
-import java.util.List;
-
 import io.reactivex.Single;
 import kr.co.landvibe.handicraft.data.domain.Furniture;
+import kr.co.landvibe.handicraft.data.support.Pagination;
 import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.FormUrlEncoded;
@@ -32,7 +31,7 @@ public interface FurnitureService {
 
     @Headers("User-Agent: Android")
     @GET("/furniture")
-    Single<List<Furniture>> getFurnitureList(
+    Single<Pagination<Furniture>> getFurnitureList(
             @Query("page") int page,
             @Query("per_page") int perPage
     );

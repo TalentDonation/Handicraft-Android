@@ -44,13 +44,15 @@ public class SignInPresenter implements SignInContract.Presenter {
                         .subscribeWith(new DisposableMaybeObserver<Member>() {
                             @Override
                             public void onSuccess(@NonNull Member member) {
-                                createAuthToRemote(new NaverOauthInfo(
-                                        accessToken, refreshToken, expiresAt, tokenType, member));
+                                view.moveToMainActivity();
+//                                createAuthToRemote(new NaverOauthInfo(
+//                                        accessToken, refreshToken, expiresAt, tokenType, member));
                             }
 
                             @Override
                             public void onError(@NonNull Throwable e) {
                                 // TODO exception 처리
+                                LogUtils.e(e.getMessage());
                             }
 
                             @Override
@@ -77,6 +79,7 @@ public class SignInPresenter implements SignInContract.Presenter {
                                     @Override
                                     public void onError(@NonNull Throwable e) {
                                         // TODO exception 처리
+                                        LogUtils.e(e.getMessage());
                                     }
 
                                     @Override

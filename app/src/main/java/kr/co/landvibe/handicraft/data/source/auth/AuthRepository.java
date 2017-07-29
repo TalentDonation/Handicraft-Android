@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import io.reactivex.Maybe;
+import kr.co.landvibe.handicraft.data.domain.Member;
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
 import kr.co.landvibe.handicraft.data.source.auth.local.AuthLocalDataSource;
 import kr.co.landvibe.handicraft.data.source.auth.remote.AuthRemoteDataSource;
@@ -68,12 +69,17 @@ public class AuthRepository implements AuthDataSource {
 
     @Override
     public void deleteAuth(@NonNull NaverOauthInfo naverOauthInfo) {
-        deleteAuth(naverOauthInfo.getUniqueId(),naverOauthInfo.getAccessToken());
+        deleteAuth(naverOauthInfo.getMember().getId(),naverOauthInfo.getAccessToken());
     }
 
     @Override
     public void deleteAuth(@NonNull String uniqueId, @NonNull String accessToken) {
 
+    }
+
+    @Override
+    public Maybe<Member> getNaverUserInfo(@NonNull String accessToken, @NonNull String tokenType) {
+        return null;
     }
 
 

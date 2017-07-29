@@ -10,6 +10,7 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import kr.co.landvibe.handicraft.data.domain.Furniture;
 import kr.co.landvibe.handicraft.data.source.furniture.remote.FurnitureRemoteDataSource;
+import kr.co.landvibe.handicraft.data.support.Pagination;
 import kr.co.landvibe.handicraft.furniture.list.adapter.contract.FurnitureListAdapterContract;
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
 import kr.co.landvibe.handicraft.utils.LogUtils;
@@ -73,12 +74,13 @@ public class FurnitureListPresenter implements FurnitureListContract.Presenter, 
 //        list.add(new Furniture(6, "회색의자!", "팝니다", "a+", "1년만 쓴건데 상태좋아요"
 //                , null, "의자", "일룸", 3, 100000, 15, 15, 15, "서울", 0.0, 0.0, null, R.drawable.f9));
 
-        disposables.add(mFurnitureDataSource.getFurnitureList(1,10)
+        disposables.add(mFurnitureDataSource.getFurnitureList(0,10)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<List<Furniture>>() {
+                .subscribeWith(new DisposableSingleObserver<Pagination<Furniture>>() {
                     @Override
-                    public void onSuccess(@NonNull List<Furniture> furnitures) {
+                    public void onSuccess(@NonNull Pagination<Furniture> furniturePagination) {
+                        List<Furniture> furnitures = furniturePagination.getContents();
                         mAdapterModel.setListData(furnitures);
                         mAdapterView.notifyAdapter();
                     }

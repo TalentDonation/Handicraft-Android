@@ -3,12 +3,11 @@ package kr.co.landvibe.handicraft.data.source.furniture.remote;
 
 import android.support.annotation.NonNull;
 
-import java.util.List;
-
 import io.reactivex.Single;
 import kr.co.landvibe.handicraft.GlobalApp;
 import kr.co.landvibe.handicraft.data.domain.Furniture;
 import kr.co.landvibe.handicraft.data.source.furniture.FurnitureDataSource;
+import kr.co.landvibe.handicraft.data.support.Pagination;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 
@@ -55,7 +54,7 @@ public class FurnitureRemoteDataSource implements FurnitureDataSource {
     }
 
     @Override
-    public Single<List<Furniture>> getFurnitureList(int page, int perPage) {
+    public Single<Pagination<Furniture>> getFurnitureList(int page, int perPage) {
         return mFurnitureService.getFurnitureList(page, perPage);
     }
 

@@ -3,10 +3,9 @@ package kr.co.landvibe.handicraft.data.source.furniture;
 
 import android.support.annotation.NonNull;
 
-import java.util.List;
-
 import io.reactivex.Single;
 import kr.co.landvibe.handicraft.data.domain.Furniture;
+import kr.co.landvibe.handicraft.data.support.Pagination;
 
 public interface FurnitureDataSource {
 
@@ -16,7 +15,7 @@ public interface FurnitureDataSource {
 
     Single<Furniture> updateFurniture(@NonNull Furniture furniture);
 
-    Single<List<Furniture>> getFurnitureList(int page, int perPage);
+    Single<Pagination<Furniture>> getFurnitureList(int page, int perPage);
 
     void deleteFurniture(@NonNull Furniture furniture);
 
