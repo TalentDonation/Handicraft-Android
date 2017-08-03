@@ -1,9 +1,11 @@
 package kr.co.landvibe.handicraft.furniture.add;
 
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 import kr.co.landvibe.handicraft.data.domain.Furniture;
 import kr.co.landvibe.handicraft.data.source.furniture.FurnitureRepository;
 import kr.co.landvibe.handicraft.utils.LogUtils;
@@ -38,6 +40,8 @@ public class FurnitureAddPresenter implements FurnitureAddContract.Presenter {
 
         disposables.add(
                 mFurnitureRepository.createFurniture(furniture)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
                         .subscribeWith(new DisposableSingleObserver<Furniture>() {
                             @Override
                             public void onSuccess(@NonNull Furniture furniture) {
@@ -67,7 +71,6 @@ public class FurnitureAddPresenter implements FurnitureAddContract.Presenter {
                             }
                         })
         );
-
 
         // view change
         view.backToMainActivity();
