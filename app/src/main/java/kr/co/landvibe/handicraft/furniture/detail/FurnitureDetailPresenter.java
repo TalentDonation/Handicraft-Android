@@ -5,7 +5,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import kr.co.landvibe.handicraft.data.domain.Furniture;
-import kr.co.landvibe.handicraft.data.source.furniture.remote.FurnitureRemoteDataSource;
+import kr.co.landvibe.handicraft.data.source.furniture.FurnitureRepository;
 import kr.co.landvibe.handicraft.utils.LogUtils;
 import retrofit2.HttpException;
 
@@ -13,22 +13,22 @@ public class FurnitureDetailPresenter implements FurnitureDetailContract.Present
 
     private FurnitureDetailContract.View view;
 
-    private FurnitureRemoteDataSource mFurnitureRemoteDataSource;
+    private FurnitureRepository mFurnitureRepository;
 
     private CompositeDisposable disposables;
 
     @Override
     public void attachView(FurnitureDetailContract.View view) {
         this.view = view;
-        mFurnitureRemoteDataSource = FurnitureRemoteDataSource.getInstance();
+        mFurnitureRepository = FurnitureRepository.getInstance();
         disposables = new CompositeDisposable();
     }
 
     @Override
     public void detachView() {
         this.view = null;
-        mFurnitureRemoteDataSource.destroyInstance();
-        mFurnitureRemoteDataSource = null;
+        mFurnitureRepository.destroyInstance();
+        mFurnitureRepository = null;
         disposables.dispose();
     }
 
@@ -36,7 +36,7 @@ public class FurnitureDetailPresenter implements FurnitureDetailContract.Present
     public void loadFurniture(long id) {
         view.showLoading();
         disposables.add(
-                mFurnitureRemoteDataSource.getFurniture(id)
+                mFurnitureRepository.getFurniture(id)
                 .subscribeWith(new DisposableSingleObserver<Furniture>() {
                     @Override
                     public void onSuccess(@NonNull Furniture furniture) {

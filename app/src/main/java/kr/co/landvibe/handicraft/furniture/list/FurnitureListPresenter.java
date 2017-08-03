@@ -9,7 +9,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import kr.co.landvibe.handicraft.data.domain.Furniture;
-import kr.co.landvibe.handicraft.data.source.furniture.remote.FurnitureRemoteDataSource;
+import kr.co.landvibe.handicraft.data.source.furniture.FurnitureRepository;
 import kr.co.landvibe.handicraft.data.support.Pagination;
 import kr.co.landvibe.handicraft.furniture.list.adapter.contract.FurnitureListAdapterContract;
 import kr.co.landvibe.handicraft.listener.OnItemClickListener;
@@ -23,14 +23,14 @@ public class FurnitureListPresenter implements FurnitureListContract.Presenter, 
     private FurnitureListAdapterContract.View mAdapterView;
     private FurnitureListAdapterContract.Model mAdapterModel;
 
-    private FurnitureRemoteDataSource mFurnitureDataSource;
+    private FurnitureRepository mFurnitureRepository;
 
     private CompositeDisposable disposables;
 
     @Override
     public void attachView(FurnitureListContract.View view) {
         this.view = view;
-        mFurnitureDataSource = FurnitureRemoteDataSource.getInstance();
+        mFurnitureRepository = FurnitureRepository.getInstance();
         disposables = new CompositeDisposable();
     }
 
@@ -41,8 +41,8 @@ public class FurnitureListPresenter implements FurnitureListContract.Presenter, 
         mAdapterModel = null;
         mAdapterView = null;
 
-        mFurnitureDataSource.destroyInstance();
-        mFurnitureDataSource = null;
+        mFurnitureRepository.destroyInstance();
+        mFurnitureRepository = null;
         disposables.dispose();
     }
 
@@ -74,7 +74,7 @@ public class FurnitureListPresenter implements FurnitureListContract.Presenter, 
 //        list.add(new Furniture(6, "회색의자!", "팝니다", "a+", "1년만 쓴건데 상태좋아요"
 //                , null, "의자", "일룸", 3, 100000, 15, 15, 15, "서울", 0.0, 0.0, null, R.drawable.f9));
 
-        disposables.add(mFurnitureDataSource.getFurnitureList(0,10)
+        disposables.add(mFurnitureRepository.getFurnitureList(0,10)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSingleObserver<Pagination<Furniture>>() {
