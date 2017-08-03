@@ -4,8 +4,8 @@
     <string name="naver_client_id" translatable="false">XhmXptV7PpE7X_2Zp7lw</string>
     <string name="naver_client_secret" translatable="false">WB43Gka_2U</string>
     <string name="naver_client_name" translatable="false">handicraft</string>
-    
-    
+
+
     <string-array name="tab_name">
         <item>증강현실</item>
         <item>스케쥴</item>
