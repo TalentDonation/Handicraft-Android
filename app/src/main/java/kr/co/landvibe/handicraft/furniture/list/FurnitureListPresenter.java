@@ -6,6 +6,7 @@ import java.util.List;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import kr.co.landvibe.handicraft.data.domain.Furniture;
@@ -74,7 +75,7 @@ public class FurnitureListPresenter implements FurnitureListContract.Presenter, 
 //        list.add(new Furniture(6, "회색의자!", "팝니다", "a+", "1년만 쓴건데 상태좋아요"
 //                , null, "의자", "일룸", 3, 100000, 15, 15, 15, "서울", 0.0, 0.0, null, R.drawable.f9));
 
-        disposables.add(mFurnitureRepository.getFurnitureList(0,10)
+        Disposable furnitureDisposable = mFurnitureRepository.getFurnitureList(0, 10)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSingleObserver<Pagination<Furniture>>() {
@@ -87,10 +88,10 @@ public class FurnitureListPresenter implements FurnitureListContract.Presenter, 
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        if(e instanceof HttpException){
+                        if (e instanceof HttpException) {
                             LogUtils.i(e.getMessage());
                             int code = ((HttpException) e).code();
-                            switch (code){
+                            switch (code) {
                                 case 400:
                                     break;
                                 case 401:
@@ -106,8 +107,9 @@ public class FurnitureListPresenter implements FurnitureListContract.Presenter, 
                             LogUtils.e(e.getMessage());
                         }
                     }
-                })
-        );
+                });
+
+        disposables.add(furnitureDisposable);
     }
 
     @Override
