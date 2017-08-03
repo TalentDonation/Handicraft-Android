@@ -30,6 +30,7 @@ public class FurnitureDetailPresenter implements FurnitureDetailContract.Present
         mFurnitureRepository.destroyInstance();
         mFurnitureRepository = null;
         disposables.dispose();
+        disposables = null;
     }
 
     @Override
@@ -37,35 +38,35 @@ public class FurnitureDetailPresenter implements FurnitureDetailContract.Present
         view.showLoading();
         disposables.add(
                 mFurnitureRepository.getFurniture(id)
-                .subscribeWith(new DisposableSingleObserver<Furniture>() {
-                    @Override
-                    public void onSuccess(@NonNull Furniture furniture) {
-                        view.bindData(furniture);
-                        view.hideLoading();
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        if(e instanceof HttpException){
-                            LogUtils.i(e.getMessage());
-                            int code = ((HttpException) e).code();
-                            switch (code){
-                                case 400:
-                                    break;
-                                case 401:
-                                    break;
-                                case 403:
-                                    break;
-                                case 500:
-                                    break;
-                                default:
-                                    break;
+                        .subscribeWith(new DisposableSingleObserver<Furniture>() {
+                            @Override
+                            public void onSuccess(@NonNull Furniture furniture) {
+                                view.bindData(furniture);
+                                view.hideLoading();
                             }
-                        } else {
-                            LogUtils.e(e.getMessage());
-                        }
-                    }
-                })
+
+                            @Override
+                            public void onError(@NonNull Throwable e) {
+                                if (e instanceof HttpException) {
+                                    LogUtils.i(e.getMessage());
+                                    int code = ((HttpException) e).code();
+                                    switch (code) {
+                                        case 400:
+                                            break;
+                                        case 401:
+                                            break;
+                                        case 403:
+                                            break;
+                                        case 500:
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                } else {
+                                    LogUtils.e(e.getMessage());
+                                }
+                            }
+                        })
         );
     }
 }
