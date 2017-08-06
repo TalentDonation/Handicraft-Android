@@ -6,6 +6,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.support.multidex.MultiDexApplication;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.concurrent.TimeUnit;
 
 import io.realm.Realm;
@@ -74,10 +77,15 @@ public class GlobalApp extends MultiDexApplication {
 
     public static Retrofit getRetrofitInstance(OkHttpClient okHttpClient) {
         if (retrofitInstance == null) {
+
+            Gson gson = new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    .create();
+
             retrofitInstance = new Retrofit.Builder()
                     .baseUrl(HOST_URL)
                     .client(okHttpClient)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(gson))
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
         }
