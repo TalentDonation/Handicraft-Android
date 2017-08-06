@@ -23,6 +23,9 @@
 
     <string name="master_default_name">김공방</string>
 
+    <!-- sing in -->
+    <string name="welcome1">누구나 할 수 있는 DIY 가구 만들기</string>
+    <string name="welcome2">함께하는, 즐거운 만들기 공방</string>
 
     <!-- master profile -->
     <string name="master_intro_label">about master</string>

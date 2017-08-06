@@ -1,8 +1,6 @@
 package kr.co.landvibe.handicraft.auth;
 
 
-import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
-
 public interface SignInContract {
 
     interface View {
@@ -21,7 +19,7 @@ public interface SignInContract {
 
         void detachView();
 
-        void signInWithNaverOauth(NaverOauthInfo naverOauthInfo);
+        void signInWithNaverOauth(String accessToken, String refreshToken, long expiresAt, String tokenType);
 
         void checkSessionNaverOauth();
 

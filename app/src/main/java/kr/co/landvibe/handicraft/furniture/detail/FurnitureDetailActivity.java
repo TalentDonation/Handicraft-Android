@@ -24,6 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import kr.co.landvibe.handicraft.R;
+import kr.co.landvibe.handicraft.data.domain.Furniture;
 import kr.co.landvibe.handicraft.furniture.map.LocationActivity;
 import kr.co.landvibe.handicraft.utils.LogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -39,9 +40,6 @@ public class FurnitureDetailActivity extends AppCompatActivity
 
     @BindView(R.id.slider_indicator)
     PagerIndicator mPagerIndicator;
-
-    @BindView(R.id.slider_container)
-    RelativeLayout mSliderContainer;
 
     @BindView(R.id.tv_furniture_title)
     TextView mTitleTv;
@@ -81,20 +79,45 @@ public class FurnitureDetailActivity extends AppCompatActivity
 
         init();
     }
-    private void init(){
+
+    private void init() {
         // Toolbar
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Intent intent = getIntent();
+        long furnitureId = intent.getLongExtra("id", 0);
+
+        mFurnitureDetailPresenter = new FurnitureDetailPresenter();
+        mFurnitureDetailPresenter.attachView(this);
+        mFurnitureDetailPresenter.loadFurniture(furnitureId);
+
+        bindSliderDate(new HashMap<>()); // TODO 네트워크 연동되면 삭제
+
+        mFurnitureImageSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+        mFurnitureImageSlider.setCustomIndicator(mPagerIndicator);
+        mFurnitureImageSlider.addOnPageChangeListener(this);
+        setSliderHeight(mFurnitureImageSlider);
+
+    }
+
+    private void setSliderHeight(SliderLayout slider) {
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int height = metrics.heightPixels * 6 / 10;
+        slider.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, height));
+    }
+
+    private void bindSliderDate(HashMap<String, Integer> fileMap){
         // mockup data
-        HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("Hannibal",R.drawable.f1);
-        file_maps.put("Big Bang Theory",R.drawable.f3);
-        file_maps.put("House of Cards",R.drawable.f5);
+        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
+        file_maps.put("Hannibal", R.drawable.f1);
+        file_maps.put("Big Bang Theory", R.drawable.f3);
+        file_maps.put("House of Cards", R.drawable.f5);
         file_maps.put("Game of Thrones", R.drawable.f8);
 
         // Image Slider
-        for(String name : file_maps.keySet()){
+        for (String name : file_maps.keySet()) {
             DefaultSliderView defaultSliderView = new DefaultSliderView(this);
             // initialize a SliderLayout
             defaultSliderView
@@ -108,37 +131,20 @@ public class FurnitureDetailActivity extends AppCompatActivity
 //                    .putString("extra",name);
             mFurnitureImageSlider.addSlider(defaultSliderView);
         }
-        mFurnitureImageSlider.setPresetTransformer(SliderLayout.Transformer.Default);
-        mFurnitureImageSlider.setCustomIndicator(mPagerIndicator);
-        mFurnitureImageSlider.addOnPageChangeListener(this);
-        setSliderHeight(mFurnitureImageSlider);
-
-
-        mFurnitureDetailPresenter = new FurnitureDetailPresenter();
-        mFurnitureDetailPresenter.attachView(this);
-        mFurnitureDetailPresenter.loadFurnitureDetailData();
-
-    }
-
-    private void setSliderHeight(SliderLayout slider){
-        DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        int height = metrics.heightPixels*6/10;
-        slider.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,height));
     }
 
     @OnClick(R.id.tv_furniture_location)
-    public void moveToFurnitureMapActivity(View v){
+    public void moveToFurnitureMapActivity(View v) {
         moveToFurnitureMapActivity();
     }
 
     @OnClick(R.id.star_container)
-    public void starAtThisFurniture(View v){
+    public void starAtThisFurniture(View v) {
         LogUtils.d("starAtThisFurniture()");
     }
 
     @OnClick(R.id.buy_container)
-    public void contactToSeller(View v){
+    public void contactToSeller(View v) {
         LogUtils.d("contactToSeller()");
     }
 
@@ -157,6 +163,7 @@ public class FurnitureDetailActivity extends AppCompatActivity
 
     /**
      * BaseSliderView.OnSliderClickListener
+     *
      * @param slider
      */
     @Override
@@ -205,5 +212,12 @@ public class FurnitureDetailActivity extends AppCompatActivity
     @Override
     public void showContactDialog() {
 
+    }
+
+    @Override
+    public void bindData(Furniture furniture) {
+        runOnUiThread(() -> {
+            bindSliderDate(new HashMap<>());
+        });
     }
 }

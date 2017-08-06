@@ -1,6 +1,8 @@
 package kr.co.landvibe.handicraft.furniture.add;
 
 
+import kr.co.landvibe.handicraft.data.domain.Furniture;
+
 public interface FurnitureAddContract {
 
     interface View{
@@ -21,7 +23,7 @@ public interface FurnitureAddContract {
 
         void detachView();
 
-        void registerFurniture();
+        void registerFurniture(Furniture furniture);
     }
 
 }

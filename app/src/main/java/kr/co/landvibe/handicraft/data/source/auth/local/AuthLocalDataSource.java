@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import io.reactivex.Maybe;
 import io.reactivex.annotations.Nullable;
 import io.realm.Realm;
+import kr.co.landvibe.handicraft.data.domain.Member;
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
 import kr.co.landvibe.handicraft.data.source.auth.AuthDataSource;
 
@@ -66,7 +67,7 @@ public class AuthLocalDataSource implements AuthDataSource {
     @Override
     public Maybe<NaverOauthInfo> updateAuth(@NonNull NaverOauthInfo naverOauthInfo) {
         return updateAuth(
-                naverOauthInfo.getUniqueId(),
+                naverOauthInfo.getMember().getId(),
                 naverOauthInfo.getAccessToken(),
                 naverOauthInfo.getExpiresAt());
     }
@@ -95,7 +96,7 @@ public class AuthLocalDataSource implements AuthDataSource {
 
     @Override
     public void deleteAuth(@NonNull NaverOauthInfo naverOauthInfo) {
-        deleteAuth(naverOauthInfo.getUniqueId(),naverOauthInfo.getAccessToken());
+        deleteAuth(naverOauthInfo.getMember().getId(),naverOauthInfo.getAccessToken());
     }
 
     @Override
@@ -105,5 +106,11 @@ public class AuthLocalDataSource implements AuthDataSource {
                 .equalTo("uniqueId",uniqueId)
                 .findFirst()
                 .deleteFromRealm());
+    }
+
+    @Deprecated
+    @Override
+    public Maybe<Member> getNaverUserInfo(@NonNull String accessToken, @NonNull String tokenType) {
+        return null;
     }
 }

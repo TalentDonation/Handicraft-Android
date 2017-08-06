@@ -4,6 +4,7 @@ package kr.co.landvibe.handicraft.data.source.auth;
 import android.support.annotation.NonNull;
 
 import io.reactivex.Maybe;
+import kr.co.landvibe.handicraft.data.domain.Member;
 import kr.co.landvibe.handicraft.data.domain.NaverOauthInfo;
 
 public interface AuthDataSource {
@@ -19,5 +20,7 @@ public interface AuthDataSource {
     void deleteAuth(@NonNull NaverOauthInfo naverOauthInfo);
 
     void deleteAuth(@NonNull String uniqueId, @NonNull String accessToken);
+
+    Maybe<Member> getNaverUserInfo(@NonNull String accessToken, @NonNull String tokenType);
 
 }

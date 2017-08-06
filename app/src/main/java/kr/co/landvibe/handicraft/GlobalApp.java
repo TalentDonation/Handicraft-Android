@@ -6,16 +6,31 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.support.multidex.MultiDexApplication;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.concurrent.TimeUnit;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import kr.co.landvibe.handicraft.utils.LogUtils;
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+
+import static kr.co.landvibe.handicraft.utils.DefineUtils.HOST_URL;
 
 public class GlobalApp extends MultiDexApplication {
 
     public static boolean DEBUG;
 
     private static GlobalApp mInstance;
+
+    private static OkHttpClient okHttpClientInstance;
+
+    private static Retrofit retrofitInstance;
 
     @Override
     public void onCreate() {
@@ -47,6 +62,34 @@ public class GlobalApp extends MultiDexApplication {
             throw new IllegalStateException("this application does not inherit GlobalApplication");
         }
         return mInstance;
+    }
+
+    public static OkHttpClient getOkHttpClientInstance() {
+        if (okHttpClientInstance == null) {
+            okHttpClientInstance = new OkHttpClient().newBuilder()
+                    .connectTimeout(15, TimeUnit.SECONDS)
+                    .writeTimeout(15, TimeUnit.SECONDS)
+                    .readTimeout(15, TimeUnit.SECONDS)
+                    .build();
+        }
+        return okHttpClientInstance;
+    }
+
+    public static Retrofit getRetrofitInstance(OkHttpClient okHttpClient) {
+        if (retrofitInstance == null) {
+
+            Gson gson = new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    .create();
+
+            retrofitInstance = new Retrofit.Builder()
+                    .baseUrl(HOST_URL)
+                    .client(okHttpClient)
+                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .build();
+        }
+        return retrofitInstance;
     }
 
     /**
@@ -83,7 +126,7 @@ public class GlobalApp extends MultiDexApplication {
     /**
      * Realm 설정 초기화
      */
-    private void initRealm(){
+    private void initRealm() {
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder().build();
         Realm.deleteRealm(config);

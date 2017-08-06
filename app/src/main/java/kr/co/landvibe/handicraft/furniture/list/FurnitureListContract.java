@@ -10,7 +10,7 @@ public interface FurnitureListContract {
 
         void hideLoading();
 
-        void moveToFurnitureDetailActivity();
+        void moveToFurnitureDetailActivity(long id);
 
         void moveToFurnitureAddActivity();
 

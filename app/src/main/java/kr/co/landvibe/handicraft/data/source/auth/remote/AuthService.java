@@ -36,6 +36,4 @@ public interface AuthService {
             @Header("Authorization") String accessToken,
             @Query("uniqueId") String uniqueId
     );
-
-
 }
