@@ -26,7 +26,7 @@
             >
 
             <ImageView
-                android:id="@+id/toolbar_master_img"
+                android:id="@+id/toolbar_user_img"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:scaleType="centerCrop"
@@ -36,7 +36,7 @@
                 />
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_master_name"
+                android:id="@+id/toolbar_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
