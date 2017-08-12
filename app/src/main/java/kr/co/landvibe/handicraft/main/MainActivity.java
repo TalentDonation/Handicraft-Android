@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import kr.co.landvibe.handicraft.R;
 import kr.co.landvibe.handicraft.masterProfile.MasterProfileActivity;
+import kr.co.landvibe.handicraft.userProfile.UserProfileActivity;
 import kr.co.landvibe.handicraft.utils.LogUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -134,8 +135,11 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_user) {
+            // Handle the user action
+            final Intent intent = new Intent(this, UserProfileActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
