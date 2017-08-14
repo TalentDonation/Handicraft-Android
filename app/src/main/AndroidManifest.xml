@@ -51,6 +51,12 @@
         </activity>
 
         <activity
+            android:name=".introduction.IntroductionActivity"
+            android:parentActivityName=".main.MainActivity">
+
+        </activity>
+
+        <activity
             android:name=".furniture.detail.FurnitureDetailActivity"
             android:launchMode="singleTask"
             android:parentActivityName=".main.MainActivity">

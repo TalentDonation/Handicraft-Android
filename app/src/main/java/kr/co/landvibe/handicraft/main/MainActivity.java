@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import kr.co.landvibe.handicraft.R;
+import kr.co.landvibe.handicraft.introduction.IntroductionActivity;
 import kr.co.landvibe.handicraft.masterProfile.MasterProfileActivity;
 import kr.co.landvibe.handicraft.userProfile.UserProfileActivity;
 import kr.co.landvibe.handicraft.utils.LogUtils;
@@ -147,6 +148,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_intro) {
+            final Intent intent = new Intent(this, IntroductionActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
 
         } else if (id == R.id.nav_master) {
             final Intent intent = new Intent(this, MasterProfileActivity.class);
