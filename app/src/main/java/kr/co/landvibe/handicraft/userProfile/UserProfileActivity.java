@@ -33,14 +33,14 @@ public class UserProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        //ButterKnife.bind(this);
+        ButterKnife.bind(this);
 
         init();
     }
 
     private void init(){
         // Toolbar
-        mToolbar = (Toolbar) findViewById(R.id.toolbar_user_name);
+        //mToolbar = (Toolbar) findViewById(R.id.toolbar_user_name);
 
         //사용시 툴바를 액션바로 사용할 수 있다.
         setSupportActionBar(mToolbar);
