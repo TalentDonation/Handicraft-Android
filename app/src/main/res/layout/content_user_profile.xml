@@ -16,87 +16,110 @@
         tools:showIn="@layout/activity_user_profile"
         tools:ignore="MissingPrefix">
 
-    <ImageView
-        android:id="@+id/iv_user_intro_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_person_black_24dp"
-        app:layout_constraintTop_toTopOf="@+id/tv_user_intro_label"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="16dp" />
+        <ImageView
+            android:id="@+id/iv_user_intro_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_person_black_24dp"
+            app:layout_constraintTop_toTopOf="@+id/tv_user_id"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="16dp" />
 
-    <TextView
-        android:id="@+id/tv_user_intro_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="about user"
-        android:textSize="14sp"
-        android:textColor="@color/gray"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="81dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="81dp" />
+        <TextView
+            android:id="@+id/tv_user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yuk_6"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="81dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="81dp" />
 
-    <TextView
-        android:id="@+id/tv_user_intro"
-        android:layout_width="282dp"
-        android:layout_height="36dp"
-        android:text="UserID : 육 / 나이 : 22"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_intro_label"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_user_intro_label"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginEnd="8dp" />
+        <TextView
+            android:id="@+id/tv_user_id_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_id"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_user_id"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginEnd="8dp" />
 
-    <View
-        android:id="@+id/divider0"
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:background="@color/grayLight2"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_user_intro"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_intro" />
+        <TextView
+            android:id="@+id/tv_user_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22살"
+            android:textSize="16sp"
+            android:layout_marginLeft="81dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="81dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_id_label"/>
 
-    <ImageView
-        android:id="@+id/iv_phone_num_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="16dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:src="@drawable/ic_phone_black_24dp"
-        app:layout_constraintTop_toTopOf="@+id/tv_work_num"
-        android:layout_marginTop="8dp" />
+        <TextView
+            android:id="@+id/tv_user_age_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="age"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_user_age"
+            android:textColor="@color/gray"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_age"/>
 
-    <TextView
-        android:id="@+id/tv_work_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="81dp"
-        android:layout_marginTop="20dp"
-        android:text="010-xxxx-xxxx"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="81dp"
-        app:layout_constraintTop_toBottomOf="@+id/divider0"/>
+        <View
+            android:id="@+id/divider0"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/grayLight2"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_user_age_label"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_age_label" />
 
-    <TextView
-        android:id="@+id/tv_phone_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_work_num"
-        android:text="@string/mobile_label"
-        android:textSize="14sp"
-        android:textColor="@color/gray"
-        app:layout_constraintTop_toBottomOf="@+id/tv_work_num" />
+        <ImageView
+            android:id="@+id/iv_phone_num_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:src="@drawable/ic_phone_black_24dp"
+            app:layout_constraintTop_toTopOf="@+id/tv_work_num"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tv_work_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="81dp"
+            android:layout_marginTop="20dp"
+            android:text="010-xxxx-xxxx"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="81dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider0"/>
+
+        <TextView
+            android:id="@+id/tv_phone_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_work_num"
+            android:text="@string/mobile_label"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            app:layout_constraintTop_toBottomOf="@+id/tv_work_num" />
 
         <TextView
             android:id="@+id/tv_home_num"
@@ -121,70 +144,70 @@
             android:textColor="@color/gray"
             app:layout_constraintTop_toBottomOf="@+id/tv_home_num"/>
 
-    <View
-        android:id="@+id/divider1"
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:background="@color/grayLight2"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_home_num_label"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home_num_label" />
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/grayLight2"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_home_num_label"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_home_num_label" />
 
-    <ImageView
-        android:id="@+id/iv_email_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_mail_black_24dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toTopOf="@+id/tv_email"
-        android:layout_marginStart="16dp" />
+        <ImageView
+            android:id="@+id/iv_email_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_mail_black_24dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="@+id/tv_email"
+            android:layout_marginStart="16dp" />
 
-    <TextView
-        android:id="@+id/tv_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="abcd@google.com"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_work_num"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/divider1" />
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="abcd@google.com"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_work_num"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider1" />
 
-    <TextView
-        android:id="@+id/tv_email_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/email_label"
-        android:textSize="14sp"
-        android:textColor="@color/gray"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_email"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_email" />
+        <TextView
+            android:id="@+id/tv_email_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email_label"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_email"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_email" />
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:background="@color/grayLight2"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_email_label"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_email_label" />
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/grayLight2"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_email_label"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_email_label" />
 
 
-    <Button
-        android:id="@+id/bt_change_info"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        app:layout_constraintTop_toBottomOf="@+id/divider2"
-        android:layout_marginTop="16dp"
-        android:background="#FFFFFF"
-        android:text="Change Information"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        <Button
+            android:id="@+id/bt_change_info"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            app:layout_constraintTop_toBottomOf="@+id/divider2"
+            android:layout_marginTop="16dp"
+            android:background="#FFFFFF"
+            android:text="Change Information"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintVertical_bias="0.0"/>
 
 
 

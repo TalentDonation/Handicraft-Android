@@ -45,6 +45,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_workshop_intro"
             android:text="공방 소개글 입니다!!!\ndddd\ndddd\ndddd\ndddd\ndddd"
             android:layout_marginTop="15dp"
+            android:paddingLeft="15dp"
             android:textSize="20sp"
             android:visibility="gone"/>
 
@@ -81,8 +82,13 @@
         <TextView
             android:id="@+id/tv_class_content"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_class"/>
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_class"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="15dp"
+            android:text="클래스 시간표!!!!!\nㄱ\nㅜ\nㄷ"
+            android:textSize="20sp"
+            android:visibility="gone"/>
 
         <View
             android:id="@+id/divider1"
@@ -117,8 +123,13 @@
         <TextView
             android:id="@+id/tv_directions_content"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_directions_intro"/>
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_directions_intro"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="15dp"
+            android:text="오시는길!!!!\n1호선 주안역 내린후 \n511번 탑승\n인하대정문에서 내림\nㄱ\nㅜ\nㄷ\n\n\n\n\n\nt"
+            android:textSize="20sp"
+            android:visibility="gone"/>
 
     </android.support.constraint.ConstraintLayout>
 

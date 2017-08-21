@@ -17,11 +17,11 @@ public class UserProfileActivity extends AppCompatActivity {
     @BindView(R.id.toolbar_user_name)
     Toolbar mToolbar;
 
-    @BindView(R.id.tv_user_intro)
-    TextView mUser;
+  //  @BindView(R.id.tv_user_intro)
+   // TextView mUser;
 
-    @BindView(R.id.tv_work_num)
-    TextView mWorkNum;
+    //@BindView(R.id.tv_work_num)
+    //TextView mWorkNum;
 
     //폰트바꾸기
     @Override

@@ -28,7 +28,13 @@ public class IntroductionActivity extends AppCompatActivity implements View.OnCl
     Button mDirections;
 
     @BindView(R.id.tv_workshop_content)
-    TextView mIntro_TV;
+    TextView mIntro_tv;
+
+    @BindView(R.id.tv_class_content)
+    TextView mClass_tv;
+
+    @BindView(R.id.tv_directions_content)
+    TextView mDirections_tv;
 
     private int i,j,k = 0;
 
@@ -62,15 +68,41 @@ public class IntroductionActivity extends AppCompatActivity implements View.OnCl
         switch (v.getId()){
             case R.id.bt_workshop_intro:
                 if(i == 0){
-                    mIntro_TV.setVisibility(View.VISIBLE);
+                    mIntro_tv.setVisibility(View.VISIBLE);
                     i = 1;
                     mIntro.setText("-");
                 }
                 else {
-                    mIntro_TV.setVisibility(View.GONE);
+                    mIntro_tv.setVisibility(View.GONE);
                     i = 0;
                     mIntro.setText("+");
                 }
+                break;
+            case R.id.bt_class:
+                if(j == 0){
+                    mClass_tv.setVisibility(View.VISIBLE);
+                    j = 1;
+                    mClass.setText("-");
+                }
+                else {
+                    mClass_tv.setVisibility(View.GONE);
+                    j = 0;
+                    mClass.setText("+");
+                }
+                break;
+            case R.id.bt_directions_intro:
+                if(k == 0){
+                    mDirections_tv.setVisibility(View.VISIBLE);
+                    k = 1;
+                    mDirections.setText("-");
+                }
+                else {
+                    mDirections_tv.setVisibility(View.GONE);
+                    k = 0;
+                    mDirections.setText("+");
+                }
+                break;
+            default:
 
         }
 
