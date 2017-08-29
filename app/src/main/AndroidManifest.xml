@@ -43,6 +43,19 @@
             android:parentActivityName=".main.MainActivity">
 
         </activity>
+
+        <activity
+            android:name=".userProfile.UserProfileActivity"
+            android:parentActivityName=".main.MainActivity">
+
+        </activity>
+
+        <activity
+            android:name=".introduction.IntroductionActivity"
+            android:parentActivityName=".main.MainActivity">
+
+        </activity>
+
         <activity
             android:name=".furniture.detail.FurnitureDetailActivity"
             android:launchMode="singleTask"

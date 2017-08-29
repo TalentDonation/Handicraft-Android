@@ -87,6 +87,11 @@
         <item>가져가세요</item>
     </string-array>
 
+    <string-array name="tab_info">
+        <item>공방소개</item>
+        <item>오시는 길</item>
+    </string-array>
+
     <!-- furniture preview -->
     <string name="furniture_preview_toolbar_title">미리보기</string>
 

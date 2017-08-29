@@ -205,7 +205,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_email"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="0dp"
-            app:layout_constraintLeft_toLeftOf="@+id/iv_btn_work_number_icon"
+            app:layout_constraintLeft_toLeftOf="@+id/iv_btn_work_icon"
             app:layout_constraintHorizontal_bias="0.0" />
 
         <View
