@@ -20,7 +20,7 @@
             android:id="@+id/tv_workshop_intro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="공방 소개"
+            android:text="공방이용방법"
             android:textSize="25sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tv_workshop_intro"
-            android:text="공방 소개글 입니다!!!\ndddd\ndddd\ndddd\ndddd\ndddd"
+            android:text="공방 이용방법!!!\ndddd\ndddd\ndddd\ndddd\ndddd"
             android:layout_marginTop="15dp"
             android:paddingLeft="15dp"
             android:textSize="20sp"
@@ -61,7 +61,7 @@
             android:id="@+id/tv_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="about class"
+            android:text="목공지도"
             android:textSize="25sp"
             app:layout_constraintTop_toBottomOf="@id/divider"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -86,7 +86,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_class"
             android:layout_marginTop="15dp"
             android:paddingLeft="15dp"
-            android:text="클래스 시간표!!!!!\nㄱ\nㅜ\nㄷ"
+            android:text="목공지도!!!!!\nㄱ\nㅜ\nㄷ"
             android:textSize="20sp"
             android:visibility="gone"/>
 
@@ -102,7 +102,7 @@
             android:id="@+id/tv_directions_intro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="오시는 길"
+            android:text="회원 작품 활동"
             android:textSize="25sp"
             app:layout_constraintTop_toBottomOf="@id/divider1"
             app:layout_constraintRight_toRightOf="parent"
@@ -127,9 +127,46 @@
             app:layout_constraintTop_toBottomOf="@id/tv_directions_intro"
             android:layout_marginTop="15dp"
             android:paddingLeft="15dp"
-            android:text="오시는길!!!!\n1호선 주안역 내린후 \n511번 탑승\n인하대정문에서 내림\nㄱ\nㅜ\nㄷ\n\n\n\n\n\nt"
+            android:text="회원 작품 활동"
             android:textSize="20sp"
             android:visibility="gone"/>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/grayLight2"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_directions_content" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="15dp"
+            android:text="제작비용"
+            android:textSize="25sp"/>
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/grayLight2"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_price" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/divider3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="15dp"
+            android:text="공방운영시간"
+            android:textSize="25sp"/>
 
     </android.support.constraint.ConstraintLayout>
 

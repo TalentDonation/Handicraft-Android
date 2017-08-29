@@ -13,11 +13,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observable;
+import jp.wasabeef.glide.transformations.BlurTransformation;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 import kr.co.landvibe.handicraft.R;
 import kr.co.landvibe.handicraft.introduction.IntroductionActivity;
 import kr.co.landvibe.handicraft.masterProfile.MasterProfileActivity;
@@ -47,6 +54,8 @@ public class MainActivity extends AppCompatActivity
     @BindArray(R.array.tab_name)
     String[] tabName;
 
+    ImageView mAvatarIv;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -59,8 +68,8 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this);
 
         init();
-    }
 
+    }
     public void init() {
         // Tab
         Observable.fromArray(tabName)
@@ -102,6 +111,12 @@ public class MainActivity extends AppCompatActivity
 
         // Navigation Event
         mNavigationView.setNavigationItemSelectedListener(this);
+        View navHeaderView = mNavigationView.getHeaderView(0);
+
+        mAvatarIv = (ImageView) navHeaderView.findViewById(R.id.avatar_iv);
+        Glide.with(mNavigationView).load(R.drawable.master_profile)
+                .apply(RequestOptions.circleCropTransform())
+                .into(mAvatarIv);
     }
 
     @Override
@@ -141,11 +156,8 @@ public class MainActivity extends AppCompatActivity
             final Intent intent = new Intent(this, UserProfileActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_setting) {
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_intro) {
             final Intent intent = new Intent(this, IntroductionActivity.class);
