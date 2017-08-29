@@ -17,13 +17,6 @@ public class UserProfileActivity extends AppCompatActivity {
     @BindView(R.id.toolbar_user_name)
     Toolbar mToolbar;
 
-  //  @BindView(R.id.tv_user_intro)
-   // TextView mUser;
-
-    //@BindView(R.id.tv_work_num)
-    //TextView mWorkNum;
-
-    //폰트바꾸기
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -39,10 +32,7 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     private void init(){
-        // Toolbar
-        //mToolbar = (Toolbar) findViewById(R.id.toolbar_user_name);
 
-        //사용시 툴바를 액션바로 사용할 수 있다.
         setSupportActionBar(mToolbar);
         mToolbar.setTitle("육상은");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
