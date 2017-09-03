@@ -22,13 +22,13 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class IntroductionActivity extends AppCompatActivity {
 
-    @BindView(R.id.toolbar_info)
+    @BindView(R.id.toolbar_intro)
     Toolbar mToolbar;
 
-    @BindView(R.id.viewPager_info)
+    @BindView(R.id.viewPager_intro)
     ViewPager mViewPager;
 
-    @BindView(R.id.toolbar_info_tab)
+    @BindView(R.id.toolbar_intro_tab)
     TabLayout mTabLayout;
 
     @BindArray(R.array.tab_info)
